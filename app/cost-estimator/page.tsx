@@ -21,6 +21,7 @@ import {
 } from '@/lib/data/costs';
 import { useStatsStore } from '@/lib/stores/stats-store';
 import { Calculator, DollarSign } from 'lucide-react';
+import { trackEvent } from '@/lib/utils/analytics';
 
 // Simplified labels
 const procedureLabels: Record<string, string> = {
@@ -63,6 +64,11 @@ export default function CostEstimatorPage() {
     const cost = estimateCost(procedure, region);
     setResult(cost);
     recordCostEstimate(procedure, region);
+    trackEvent('cost_estimate', {
+      procedure,
+      region,
+      estimatedCost: cost,
+    });
   };
 
   return (

@@ -24,6 +24,7 @@ import {
   languageOptions,
 } from '@/lib/utils/scripts';
 import { Wand2 } from 'lucide-react';
+import { trackEvent } from '@/lib/utils/analytics';
 
 // Simplified labels
 const procedureLabels: Record<string, string> = {
@@ -72,6 +73,20 @@ export function ScriptForm() {
     setField,
     generateScripts,
   } = useScriptStore();
+
+  const handleGenerate = () => {
+    trackEvent('script_generated', {
+      procedure,
+      payment,
+      urgency,
+      scenario,
+      tone,
+      channel,
+      isShort,
+      lang,
+    });
+    generateScripts();
+  };
 
   return (
     <motion.div
@@ -203,86 +218,6 @@ export function ScriptForm() {
                 </SelectContent>
               </Select>
             </div>
-
-            {/* Urgency */}
-            <div className="space-y-2">
-              <Label htmlFor="urgency" className="text-base font-medium">Urgency</Label>
-              <Select
-                value={urgency}
-                onValueChange={(value) => setField('urgency', value as any)}
-              >
-                <SelectTrigger id="urgency" className="h-12 rounded-2xl">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {urgencyOptions.map((option) => (
-                    <SelectItem key={option} value={option}>
-                      {option === 'Urgent' ? '🚨 Urgent' : '📅 Regular'}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Scenario */}
-            <div className="space-y-2">
-              <Label htmlFor="scenario" className="text-base font-medium">Visit Type</Label>
-              <Select
-                value={scenario}
-                onValueChange={(value) => setField('scenario', value as any)}
-              >
-                <SelectTrigger id="scenario" className="h-12 rounded-2xl">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {scenarioOptions.map((option) => (
-                    <SelectItem key={option} value={option}>
-                      {scenarioLabels[option] || option}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Tone */}
-            <div className="space-y-2">
-              <Label htmlFor="tone" className="text-base font-medium">Tone</Label>
-              <Select
-                value={tone}
-                onValueChange={(value) => setField('tone', value as any)}
-              >
-                <SelectTrigger id="tone" className="h-12 rounded-2xl">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {toneOptions.map((option) => (
-                    <SelectItem key={option} value={option}>
-                      {toneLabels[option] || option}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-
-            {/* Channel */}
-            <div className="space-y-2">
-              <Label htmlFor="channel" className="text-base font-medium">Contact</Label>
-              <Select
-                value={channel}
-                onValueChange={(value) => setField('channel', value as any)}
-              >
-                <SelectTrigger id="channel" className="h-12 rounded-2xl">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  {channelOptions.map((option) => (
-                    <SelectItem key={option} value={option}>
-                      {channelLabels[option] || option}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
           </div>
 
           {/* Language */}
@@ -322,7 +257,7 @@ export function ScriptForm() {
 
           {/* Generate Button */}
           <Button
-            onClick={generateScripts}
+            onClick={handleGenerate}
             className="w-full h-14 text-lg rounded-2xl bg-blue-600 hover:bg-blue-700"
             size="lg"
           >

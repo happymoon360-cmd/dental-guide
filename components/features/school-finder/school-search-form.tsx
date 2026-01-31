@@ -15,16 +15,19 @@ import {
 import { Checkbox } from '@/components/ui/checkbox';
 import { useSchoolStore } from '@/lib/stores/school-store';
 import { Search } from 'lucide-react';
+import { trackEvent } from '@/lib/utils/analytics';
 
 export function SchoolSearchForm() {
   const {
     zip,
     state,
     onlyComplete,
+    includeCommunityClinics,
     isLoading,
     setZip,
     setState,
     setOnlyComplete,
+    setIncludeCommunityClinics,
     searchSchools,
     getStates,
   } = useSchoolStore();
@@ -32,11 +35,23 @@ export function SchoolSearchForm() {
   const states = getStates();
 
   const handleSearch = () => {
+    trackEvent('school_search', {
+      zip,
+      state,
+      onlyComplete,
+      includeCommunityClinics,
+    });
     searchSchools();
   };
 
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
+      trackEvent('school_search', {
+        zip,
+        state,
+        onlyComplete,
+        includeCommunityClinics,
+      });
       searchSchools();
     }
   };
@@ -56,12 +71,15 @@ export function SchoolSearchForm() {
               <Input
                 id="zip"
                 type="text"
+                inputMode="numeric"
+                pattern="[0-9]{5}"
                 placeholder="e.g. 10001"
                 value={zip}
                 onChange={(e) => setZip(e.target.value)}
                 onKeyPress={handleKeyPress}
                 className="h-12 rounded-2xl"
                 aria-label="Enter ZIP code"
+                maxLength={5}
               />
             </div>
 
@@ -86,6 +104,7 @@ export function SchoolSearchForm() {
                 </SelectContent>
               </Select>
             </div>
+          </div>
 
           {/* Only Complete Checkbox */}
           <div className="flex items-center space-x-3 py-2">
@@ -101,36 +120,23 @@ export function SchoolSearchForm() {
             </Label>
           </div>
 
-            {/* State */}
-            <div className="space-y-2">
-              <Label htmlFor="state" className="text-base font-medium">State</Label>
-              <Select value={state} onValueChange={setState}>
-                <SelectTrigger id="state" className="h-12 rounded-2xl">
-                  <SelectValue placeholder="All States" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="ALL">All States</SelectItem>
-                  {states.map((s) => (
-                    <SelectItem key={s} value={s}>
-                      {s}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
-
-          {/* Only Complete Checkbox */}
+          {/* Include Community Clinics Checkbox */}
           <div className="flex items-center space-x-3 py-2">
             <Checkbox
-              id="onlyComplete"
-              checked={onlyComplete}
-              onCheckedChange={(checked) => setOnlyComplete(!!checked)}
+              id="includeCommunityClinics"
+              checked={includeCommunityClinics}
+              onCheckedChange={(checked) => setIncludeCommunityClinics(!!checked)}
               className="h-5 w-5"
+              aria-label="Include community health centers and FQHCs"
             />
-            <Label htmlFor="onlyComplete" className="text-base cursor-pointer">
-              Show only complete info
-            </Label>
+            <div className="flex-1">
+              <Label htmlFor="includeCommunityClinics" className="text-base cursor-pointer">
+                Include community health centers
+              </Label>
+              <p className="text-xs text-gray-500 mt-0.5">
+                FQHCs with sliding scale fees for states without dental schools
+              </p>
+            </div>
           </div>
 
           {/* Search Button */}

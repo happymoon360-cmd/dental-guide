@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { SchoolWithDistance, School, SchoolSearchParams } from '@/lib/types';
 import { dentalSchools } from '@/lib/data/schools';
+import { communityClinics } from '@/lib/data/community-clinics';
 import { fetchZipLocation, haversineMiles, isSchoolComplete, getUniqueStates } from '@/lib/utils/geolocation';
 
 interface SchoolState {
@@ -12,9 +13,11 @@ interface SchoolState {
   zip: string;
   state: string;
   onlyComplete: boolean;
+  includeCommunityClinics: boolean;
   setZip: (zip: string) => void;
   setState: (state: string) => void;
   setOnlyComplete: (onlyComplete: boolean) => void;
+  setIncludeCommunityClinics: (includeCommunityClinics: boolean) => void;
   searchSchools: () => Promise<void>;
   clearResults: () => void;
   getStates: () => string[];
@@ -37,24 +40,30 @@ function getSchoolOverrides(): Record<string, Partial<School>> {
   return {};
 }
 
-function getEffectiveSchools(): School[] {
+function getEffectiveSchools(includeCommunity = false): School[] {
   const overrides = getSchoolOverrides();
-  return dentalSchools.map((school) => ({
+  const schools = dentalSchools.map((school) => ({
     ...school,
     ...(overrides[school.name] || {}),
   })).filter((school) => !school.hidden);
+
+  if (includeCommunity) {
+    return [...schools, ...communityClinics];
+  }
+  return schools;
 }
 
 export const useSchoolStore = create<SchoolState>()(
   persist(
     (set, get) => ({
-      schools: getEffectiveSchools(),
+      schools: getEffectiveSchools(false),
       results: [],
       isLoading: false,
       error: null,
       zip: '',
       state: 'ALL',
       onlyComplete: false,
+      includeCommunityClinics: false,
 
       setZip: (zip: string) => {
         set({ zip });
@@ -66,6 +75,10 @@ export const useSchoolStore = create<SchoolState>()(
 
       setOnlyComplete: (onlyComplete: boolean) => {
         set({ onlyComplete });
+      },
+
+      setIncludeCommunityClinics: (includeCommunityClinics: boolean) => {
+        set({ includeCommunityClinics, schools: getEffectiveSchools(includeCommunityClinics) });
       },
 
       searchSchools: async () => {
@@ -195,6 +208,7 @@ export const useSchoolStore = create<SchoolState>()(
         zip: state.zip,
         state: state.state,
         onlyComplete: state.onlyComplete,
+        includeCommunityClinics: state.includeCommunityClinics,
       }),
     }
   )

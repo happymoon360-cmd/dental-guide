@@ -16,6 +16,7 @@ import {
 import { motion } from 'framer-motion';
 import { symptomOptions, getUrgencyGuide } from '@/lib/data/urgency';
 import { Activity, AlertTriangle } from 'lucide-react';
+import { trackEvent } from '@/lib/utils/analytics';
 
 // Simplified labels
 const symptomLabels: Record<string, string> = {
@@ -45,6 +46,10 @@ export default function EmergencyTriagePage() {
   const handleCheck = () => {
     const guide = getUrgencyGuide(symptom);
     setResult(guide);
+    trackEvent('emergency_triage_viewed', {
+      symptom,
+      hasResult: !!guide,
+    });
   };
 
   return (

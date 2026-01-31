@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/providers/theme-provider';
@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils/cn';
 const inter = Inter({ subsets: ['latin'], variable: '--font-pretendard' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dental.guide'),
   title: {
     default: 'Guerilla Dental Guide - Dental Survival Tools for the Uninsured',
     template: '%s | Guerilla Dental Guide',
@@ -36,6 +37,12 @@ export const metadata: Metadata = {
   other: {
     'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.zippopotam.us; frame-ancestors 'none';",
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({

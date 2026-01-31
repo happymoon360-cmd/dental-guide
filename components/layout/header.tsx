@@ -5,12 +5,13 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils/cn';
 import { GraduationCap } from 'lucide-react';
 
-// Simplified navigation - only 4 core tools
+// Simplified navigation - core tools + blog
 const navItems = [
   { href: '/script-builder', label: 'Script', icon: '📝' },
   { href: '/school-finder', label: 'Schools', icon: '🎓' },
   { href: '/cost-estimator', label: 'Costs', icon: '💰' },
   { href: '/emergency-triage', label: 'Emergency', icon: '🚨' },
+  { href: '/blog', label: 'Blog', icon: '📰' },
   { href: '/feedback', label: 'Feedback', icon: '💬' },
 ];
 
@@ -33,7 +34,7 @@ export function Header() {
 
       {/* Bottom navigation for mobile (larger touch targets for elderly) */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 md:hidden">
-        <div className="grid grid-cols-5 h-16">
+        <div className="grid grid-cols-6 h-16">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
             return (

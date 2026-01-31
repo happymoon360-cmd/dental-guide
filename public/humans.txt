@@ -1,0 +1,25 @@
+/* SITE TITLE */
+Dental Guide - Guerilla Dental Survival Tools
+
+/* SITE URL */
+https://dental.guide
+
+/* AUTHORS */
+Guerilla Dental Guide Team
+
+/* SITE LAST UPDATED */
+2025-01-31
+
+/* TECHNOLOGY */
+- Next.js 14
+- React 18
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+
+/* PURPOSE */
+Dental survival tools for the uninsured and underinsured.
+
+/* CONTACT */
+For questions or feedback, please use our feedback form:
+https://dental.guide/feedback

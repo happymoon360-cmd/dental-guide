@@ -1,0 +1,5 @@
+# Add your Google AdSense publisher ID here when ready
+# Example: google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# For more information about ads.txt, visit:
+# https://support.google.com/adsense/answer/48682?hl=en

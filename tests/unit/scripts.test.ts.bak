@@ -1,0 +1,149 @@
+import { describe, it, expect } from 'vitest';
+import { buildScripts } from '@/lib/utils/scripts';
+
+describe('Script Generation', () => {
+  describe('English Scripts', () => {
+    it('should generate English script for root canal', () => {
+      const result = buildScripts({
+        procedure: '신경치료',
+        payment: '현금 일시불',
+        urgency: '일반',
+        scenario: '첫 방문',
+        budget: '최대한 낮추고 싶음',
+        tone: '정중형',
+        channel: '방문',
+        isShort: false,
+        lang: 'en',
+      });
+
+      expect(result.scriptA).toContain('Hello.');
+      expect(result.scriptA).toContain('root canal');
+      expect(result.scriptA).toContain('This is my first visit');
+      expect(result.scriptA).toContain('minimize costs');
+      expect(result.scriptA).toContain('I plan to pay by Cash Full Payment');
+      expect(result.scriptA).toContain('I\'d like to politely ask');
+
+      expect(result.scriptB).toContain('Hello.');
+      expect(result.scriptB).toContain('student clinics/membership plans');
+    });
+
+    it('should generate short English script for phone channel', () => {
+      const result = buildScripts({
+        procedure: '검진/스케일링',
+        payment: '당일 카드 일시불',
+        urgency: '급함',
+        scenario: '응급',
+        budget: '합리적이면 수용',
+        tone: '직접형',
+        channel: '전화',
+        isShort: false,
+        lang: 'en',
+      });
+
+      expect(result.scriptA).toContain('I\'m contacting you by phone');
+      expect(result.scriptA).toContain('significant pain');
+      expect(result.scriptA).toContain('earliest possible appointment');
+      expect(result.scriptA).toContain('I\'d like to confirm costs');
+    });
+
+    it('should generate English script for negotiation response', () => {
+      const result = buildScripts({
+        procedure: '크라운/보철',
+        payment: '분할 지불',
+        urgency: '일반',
+        scenario: '거절 대응',
+        budget: '최대한 낮추고 싶음',
+        tone: '정중형',
+        channel: '방문',
+        isShort: true,
+        lang: 'en',
+      });
+
+      expect(result.scriptA).toContain('Alternatives/installments if adjustment is difficult');
+      expect(result.scriptA).toContain('minimize costs');
+    });
+  });
+
+  describe('Spanish Scripts', () => {
+    it('should generate Spanish script for root canal', () => {
+      const result = buildScripts({
+        procedure: '신경치료',
+        payment: '현금 일시불',
+        urgency: '일반',
+        scenario: '첫 방문',
+        budget: '최대한 낮추고 싶음',
+        tone: '정중형',
+        channel: '방문',
+        isShort: false,
+        lang: 'es',
+      });
+
+      expect(result.scriptA).toContain('Hola.');
+      expect(result.scriptA).toContain('tratamiento de conducto');
+      expect(result.scriptA).toContain('Es mi primera visita');
+      expect(result.scriptA).toContain('minimizar costos');
+      expect(result.scriptA).toContain('Planeo pagar por Cash Full Payment');
+      expect(result.scriptA).toContain('me gustaría preguntar con cortesía');
+
+      expect(result.scriptB).toContain('clínicas de estudiantes/planes de membresía');
+    });
+
+    it('should generate Spanish script for urgent pain', () => {
+      const result = buildScripts({
+        procedure: '충치 치료(레진/아말감)',
+        payment: '당일 카드 일시불',
+        urgency: '급함',
+        scenario: '응급',
+        budget: '합리적이면 수용',
+        tone: '직접형',
+        channel: '문자',
+        isShort: false,
+        lang: 'es',
+      });
+
+      expect(result.scriptA).toContain('Me comunico por mensaje de texto');
+      expect(result.scriptA).toContain('mucho dolor');
+      expect(result.scriptA).toContain('cita más temprana posible');
+      expect(result.scriptA).toContain('Quiero confirmar costos');
+    });
+
+    it('should generate Spanish script for follow-up visit', () => {
+      const result = buildScripts({
+        procedure: '검진/스케일링',
+        payment: '현금 일시불',
+        urgency: '일반',
+        scenario: '재방문',
+        budget: '최대한 낮추고 싶음',
+        tone: '정중형',
+        channel: '전화',
+        isShort: false,
+        lang: 'es',
+      });
+
+      expect(result.scriptA).toContain('Los síntomas continúan');
+      expect(result.scriptA).toContain('consulta de seguimiento');
+      expect(result.scriptA).toContain('Me comunico por teléfono');
+    });
+  });
+
+  describe('Korean Scripts', () => {
+    it('should still generate Korean scripts', () => {
+      const result = buildScripts({
+        procedure: '신경치료',
+        payment: '현금 일시불',
+        urgency: '급함',
+        scenario: '첫 방문',
+        budget: '최대한 낮추고 싶음',
+        tone: '직접형',
+        channel: '방문',
+        isShort: false,
+        lang: 'ko',
+      });
+
+      expect(result.scriptA).toContain('안녕하세요.');
+      expect(result.scriptA).toContain('신경치료');
+      expect(result.scriptA).toContain('첫 방문');
+      expect(result.scriptA).toContain('최대한 절감');
+    });
+  });
+});

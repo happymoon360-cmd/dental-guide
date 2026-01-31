@@ -1,0 +1,360 @@
+<!doctype html>
+ <html lang="en">
+   <head>
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <title>Guerilla Dental Guide MVP</title>
+     <link rel="stylesheet" href="styles.css" />
+   </head>
+   <body>
+    <main class="app">
+       <header class="header">
+         <h1>Guerilla Dental Guide</h1>
+         <p class="subtitle">Dental Survival Tools That Preserve Your Dignity, With or Without Insurance</p>
+       </header>
+
+       <section class="card">
+         <h2>Script Generator</h2>
+         <div class="form-grid">
+           <label>
+             Treatment Type
+             <select id="procedure">
+               <option value="Exam/Cleaning">Exam/Cleaning</option>
+               <option value="Filling (Resin/Amalgam)">Filling (Resin/Amalgam)</option>
+               <option value="Root Canal">Root Canal</option>
+               <option value="Crown/Restoration">Crown/Restoration</option>
+               <option value="Extraction/Implant">Extraction/Implant</option>
+             </select>
+           </label>
+           <label>
+             Payment Method
+             <select id="payment">
+               <option value="Cash Full Payment">Cash Full Payment</option>
+               <option value="Card Same-Day Payment">Card Same-Day Payment</option>
+               <option value="Installment Payment">Installment Payment</option>
+             </select>
+           </label>
+           <label>
+             Urgency
+             <select id="urgency">
+               <option value="General">General</option>
+               <option value="Urgent">Urgent</option>
+             </select>
+           </label>
+          <label>
+            Scenario
+            <select id="scenario">
+              <option value="First Visit">First Visit</option>
+              <option value="Follow-up">Follow-up</option>
+              <option value="Emergency">Emergency</option>
+              <option value="Negotiation">Negotiation</option>
+            </select>
+          </label>
+           <label>
+             Budget Preference
+             <select id="budget">
+               <option value="Minimize">Minimize Costs</option>
+               <option value="Accept Reasonable">Accept Reasonable</option>
+             </select>
+           </label>
+          <label>
+            Script Tone
+            <select id="tone">
+              <option value="Direct">Direct</option>
+              <option value="Polite">Polite</option>
+            </select>
+          </label>
+          <label>
+            Contact Channel
+            <select id="channel">
+              <option value="In-Person">In-Person</option>
+              <option value="Phone">Phone</option>
+              <option value="SMS">Text</option>
+            </select>
+          </label>
+          <label>
+            Script Language
+            <select id="languageSelect">
+              <option value="en">English</option>
+              <option value="es">Español</option>
+              <option value="ko">Korean</option>
+            </select>
+          </label>
+          <label class="checkbox">
+            <input id="shortScript" type="checkbox" />
+            Short version (for text messages)
+          </label>
+         </div>
+         <button id="generateScript">Generate Scripts</button>
+        <div class="button-row">
+          <button id="saveScriptPreset">Save Favorite</button>
+          <select id="scriptPresetSelect" aria-label="Favorite list">
+            <option value="">No saved favorites</option>
+          </select>
+          <button id="applyScriptPreset">Load Favorite</button>
+          <button id="deleteScriptPreset">Delete Favorite</button>
+          <button id="exportScriptPdf">Export PDF</button>
+        </div>
+        <div id="scriptOutput" class="output"></div>
+       </section>
+
+       <section class="card">
+         <h2>Dental School Matcher</h2>
+         <div class="form-grid">
+           <label>
+             ZIP Code
+             <input id="zipInput" type="text" placeholder="e.g.: 10001" />
+           </label>
+          <label>
+            State
+            <select id="stateSelect">
+              <option value="">All</option>
+            </select>
+          </label>
+          <label class="checkbox">
+            <input id="onlyComplete" type="checkbox" />
+            Show only complete information
+          </label>
+           <button id="findSchools">Find Nearby Dental Schools</button>
+         </div>
+        <div id="schoolCount" class="meta"></div>
+        <div id="dataCoverage" class="meta"></div>
+         <div id="schoolOutput" class="list"></div>
+       </section>
+
+      <section class="card">
+        <h2>Dental School Data Enhancement</h2>
+        <div class="meta">Quickly fill required information (school name/city/state/ZIP/phone/website).</div>
+        <div class="form-grid">
+          <label>
+            Paste JSON
+            <textarea id="dataJson" class="textarea" placeholder='[{"name":"School Name","city":"City","state":"ST","zip":"00000","phone":"(000) 000-0000","website":"https://..."}]'></textarea>
+          </label>
+        </div>
+        <div class="button-row">
+          <button id="exportData">Export Current Data</button>
+          <button id="importData">Import JSON</button>
+          <button id="showMissing">Show Schools with Missing Info</button>
+          <button id="finalizeData">Save Verified Data</button>
+          <button id="exportReport">Export Verification Report</button>
+        </div>
+        <div id="dataEditorList" class="list"></div>
+      </section>
+
+      <section class="card">
+        <h2>Cost Estimator</h2>
+        <div class="form-grid">
+          <label>
+            Treatment Type
+            <select id="costProcedure">
+              <option value="Exam/Cleaning">Exam/Cleaning</option>
+              <option value="Filling (Resin/Amalgam)">Filling (Resin/Amalgam)</option>
+              <option value="Root Canal">Root Canal</option>
+              <option value="Crown/Restoration">Crown/Restoration</option>
+              <option value="Extraction/Implant">Extraction/Implant</option>
+            </select>
+          </label>
+          <label>
+            Region
+            <select id="costRegion">
+              <option value="National Average">National Average</option>
+              <option value="Major City">Major City</option>
+              <option value="Mid-Size City">Mid-Size City</option>
+            </select>
+          </label>
+        </div>
+        <button id="estimateCost">View Cost Range</button>
+        <div id="costOutput" class="output"></div>
+      </section>
+
+      <section class="card">
+        <h2>Dental School Appointment Checklist</h2>
+        <div id="checklist" class="checklist"></div>
+      </section>
+
+      <section class="card">
+        <h2>Urgency Classification Guide</h2>
+        <div class="form-grid">
+          <label>
+            Select Symptom
+            <select id="symptomSelect">
+              <option value="Severe Pain">Severe Pain</option>
+              <option value="Facial Swelling">Facial Swelling</option>
+              <option value="Bleeding Won't Stop">Bleeding Won't Stop</option>
+              <option value="Broken Tooth">Broken Tooth</option>
+              <option value="Gum Swelling">Gum Swelling</option>
+              <option value="Pain with Fever">Pain with Fever</option>
+            </select>
+          </label>
+        </div>
+        <button id="checkUrgency">View Guide</button>
+        <div id="urgencyOutput" class="output"></div>
+      </section>
+
+      <section class="card">
+        <h2>Membership Plan Explorer</h2>
+        <div class="form-grid">
+          <label>
+            Area/Dentist of Interest
+            <input id="membershipInput" type="text" placeholder="e.g.: Boston or dentist name" />
+          </label>
+        </div>
+        <button id="membershipGuide">Create Inquiry Template</button>
+        <div id="membershipOutput" class="output"></div>
+      </section>
+
+      <section class="card">
+        <h2>Alternative Options Comparison</h2>
+        <div class="table">
+          <div class="table-row table-header">
+            <span>Option</span>
+            <span>Pros</span>
+            <span>Considerations</span>
+          </div>
+          <div class="table-row">
+            <span>Partial Denture</span>
+            <span>Lower cost, quick application</span>
+            <span>Requires maintenance, durability limits</span>
+          </div>
+          <div class="table-row">
+            <span>Implant</span>
+            <span>Function recovery, excellent aesthetics</span>
+            <span>Higher cost, longer treatment may be needed</span>
+          </div>
+          <div class="table-row">
+            <span>Bridge/Prosthesis</span>
+            <span>Mid-range cost, relatively quick</span>
+            <span>May damage adjacent teeth</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Treatment Fee Breakdown</h2>
+        <div class="form-grid">
+          <label>
+            Select Item
+            <select id="feeItem">
+              <option value="Exam Fee">Exam Fee</option>
+              <option value="Material Fee">Material Fee</option>
+              <option value="Lab Fee">Lab Fee</option>
+              <option value="Anesthesia Fee">Anesthesia Fee</option>
+              <option value="Emergency Fee">Emergency Fee</option>
+            </select>
+          </label>
+        </div>
+        <button id="feeExplain">View Explanation</button>
+        <div id="feeOutput" class="output"></div>
+      </section>
+
+      <section class="card">
+        <h2>Nearby Directions</h2>
+        <div class="form-grid">
+          <label>
+            From
+            <input id="fromInput" type="text" placeholder="Current location or ZIP code" />
+          </label>
+          <label>
+            To
+            <input id="toInput" type="text" placeholder="Dentist name or address" />
+          </label>
+        </div>
+        <button id="routeButton">Create Directions Link</button>
+        <div id="routeOutput" class="output"></div>
+      </section>
+
+      <section class="card">
+        <h2>Review Tags</h2>
+        <div class="chip-group">
+          <button class="chip" data-tag="Friendly">Friendly</button>
+          <button class="chip" data-tag="Reasonable Price">Reasonable Price</button>
+          <button class="chip" data-tag="Short Wait">Short Wait</button>
+          <button class="chip" data-tag="Detailed Explanation">Detailed Explanation</button>
+          <button class="chip" data-tag="Evening Hours">Evening Hours</button>
+        </div>
+        <div class="form-grid">
+          <label>
+            Add Custom
+            <input id="customTagInput" type="text" placeholder="Enter tag" />
+          </label>
+        </div>
+        <button id="addCustomTag">Add Tag</button>
+        <div id="tagOutput" class="tag-list"></div>
+      </section>
+
+      <section class="card">
+        <h2>Community Connections</h2>
+        <div id="communityList" class="list"></div>
+        <div class="form-grid">
+          <label>
+            Event Title
+            <input id="eventTitle" type="text" placeholder="e.g.: Free Care Day" />
+          </label>
+          <label>
+            Date
+            <input id="eventDate" type="date" />
+          </label>
+          <label>
+            Link
+            <input id="eventLink" type="text" placeholder="https://..." />
+          </label>
+        </div>
+        <button id="addEvent">Add Event</button>
+      </section>
+
+       <section class="card">
+         <h2>Alternative Care Guide</h2>
+         <div class="guide-grid">
+           <article class="guide">
+             <h3>Partial Denture Care</h3>
+             <p>Daily cleaner use, avoid hot water, prevent drying when storing.</p>
+           </article>
+           <article class="guide">
+             <h3>Temporary Tooth Care</h3>
+             <p>Avoid hard foods, no sticky foods, cold compress for pain.</p>
+           </article>
+           <article class="guide">
+             <h3>Toothache Emergency Response</h3>
+             <p>Check pain reliever contraindications, seek prompt care if inflammation suspected.</p>
+           </article>
+         </div>
+       </section>
+
+      <section class="card emphasis">
+        <h2>Dignity Guide</h2>
+        <p>Poverty is not your fault. We provide information to protect your dignity.</p>
+        <div class="guide-grid">
+          <article class="guide">
+            <h3>Managing Naturally at a Young Age</h3>
+            <p>Care habits are key for partial dentures. Establish cleaning routines and storage rules first to reduce psychological burden.</p>
+          </article>
+          <article class="guide">
+            <h3>Speaking Tips Without Shame</h3>
+            <p>Saying "I have a limited budget and want to know my options" calmly can change the consultation flow.</p>
+          </article>
+          <article class="guide">
+            <h3>When Delaying Treatment Due to Budget</h3>
+            <p>Ask about phased treatment or payment splits first. Prioritizing treatment can reduce urgent situations.</p>
+          </article>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Usage Statistics Dashboard</h2>
+        <div class="meta">Basic usage metrics stored locally only.</div>
+        <div id="statsOutput" class="list"></div>
+        <div class="button-row">
+          <button id="resetStats">Reset Statistics</button>
+        </div>
+      </section>
+
+      <section class="card" style="font-size: 0.85rem; color: #666;">
+        <h3>Disclaimer</h3>
+        <p><strong>This website is for informational purposes only.</strong> We do not provide dental services or medical advice. Always consult with a qualified dental professional for medical advice, diagnosis, or treatment.</p>
+        <p>We do not guarantee the accuracy, completeness, or timeliness of any information provided. Contact providers directly to verify services, pricing, and availability. No doctor-patient relationship is formed through the use of this website.</p>
+      </section>
+    </main>
+
+    <script src="scripts.js"></script>
+     <script src="app.js"></script>
+   </body>
+ </html>

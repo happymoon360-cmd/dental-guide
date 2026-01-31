@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { Footer } from '@/components/layout/footer';
+import { SchemaMarkup } from '@/components/seo/schema-markup';
+import { CanonicalUrl } from '@/lib/seo/canonical-url';
 import { cn } from '@/lib/utils/cn';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-pretendard' });
@@ -37,6 +39,9 @@ export const metadata: Metadata = {
   other: {
     'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.zippopotam.us; frame-ancestors 'none';",
   },
+  alternates: {
+    canonical: 'https://dental.guide',
+  },
 };
 
 export const viewport: Viewport = {
@@ -52,6 +57,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <CanonicalUrl url="https://dental.guide" />
+        <SchemaMarkup />
+        <link rel="alternate" type="application/rss+xml" title="Guerilla Dental Guide RSS Feed" href="https://dental.guide/rss.xml" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2b6cb0" />
+        <meta name="msapplication-TileColor" content="#2b6cb0" />
+        <meta name="theme-color" content="#2b6cb0" />
+      </head>
       <body className={cn(inter.variable, 'min-h-screen antialiased')}>
         <ThemeProvider
           attribute="class"

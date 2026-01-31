@@ -1,11 +1,13 @@
 import { MetadataRoute } from 'next';
+import { blogPosts } from '@/lib/blog/posts';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://dental.guide';
 
   // Main pages
-  const routes = [
+  const mainRoutes = [
     '',
+    '/blog',
     '/script-builder',
     '/school-finder',
     '/cost-estimator',
@@ -15,8 +17,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.9,
+    priority: route === '' ? 1 : route === '/blog' ? 0.9 : 0.9,
   }));
 
-  return routes;
+  // Blog posts
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...mainRoutes, ...blogRoutes];
 }

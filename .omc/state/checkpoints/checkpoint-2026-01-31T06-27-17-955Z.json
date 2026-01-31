@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-01-31T06:27:17.954Z",
+  "trigger": "auto",
+  "active_modes": {
+    "ralph": {
+      "iteration": 2,
+      "prompt": ""
+    },
+    "ultrawork": {
+      "original_prompt": "I want to do it all 1,2,3 ulw ralph"
+    }
+  },
+  "todo_summary": {
+    "pending": 0,
+    "in_progress": 0,
+    "completed": 0
+  },
+  "wisdom_exported": true
+}

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { Header } from '@/components/layout/header';
 import { Container } from '@/components/layout/container';
 import { Button } from '@/components/ui/button';
@@ -10,6 +11,35 @@ import {
   ArrowRight,
   CheckCircle2,
 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Affordable Dental Care Tools - Free Resources for the Uninsured',
+  description: 'Free tools to find affordable dental care, negotiate dental bills, locate free clinics and dental schools near you. Save money on dental work without insurance.',
+  keywords: ['affordable dental care', 'free dental clinic', 'dental without insurance', 'negotiate dental bills', 'dental schools near me', 'cheap dentist', 'dental cost help', 'low-income dental'],
+  openGraph: {
+    type: 'website',
+    url: 'https://dental.guide',
+    title: 'Affordable Dental Care Tools - Free Resources for the Uninsured',
+    description: 'Free tools to find affordable dental care, negotiate dental bills, locate free clinics and dental schools near you. Save money on dental work without insurance.',
+    images: [
+      {
+        url: 'https://dental.guide/og-home.png',
+        width: 1200,
+        height: 630,
+        alt: 'Dental Guide - Affordable Dental Care Tools',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Affordable Dental Care Tools - Free Resources for the Uninsured',
+    description: 'Free tools to find affordable dental care, negotiate dental bills, locate free clinics and dental schools near you. Save money on dental work without insurance.',
+    images: ['https://dental.guide/og-home.png'],
+  },
+  alternates: {
+    canonical: 'https://dental.guide',
+  },
+};
 
 const tools = [
   {

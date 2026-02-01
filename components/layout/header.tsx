@@ -3,16 +3,27 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils/cn';
-import { GraduationCap } from 'lucide-react';
+import {
+  GraduationCap,
+  FileText,
+  DollarSign,
+  AlertTriangle,
+  Newspaper,
+  Info,
+  Megaphone,
+  MessageCircle
+} from 'lucide-react';
 
 // Simplified navigation - core tools + blog
 const navItems = [
-  { href: '/script-builder', label: 'Script', icon: '📝' },
-  { href: '/school-finder', label: 'Schools', icon: '🎓' },
-  { href: '/cost-estimator', label: 'Costs', icon: '💰' },
-  { href: '/emergency-triage', label: 'Emergency', icon: '🚨' },
-  { href: '/blog', label: 'Blog', icon: '📰' },
-  { href: '/feedback', label: 'Feedback', icon: '💬' },
+  { href: '/script-builder', label: 'Script', icon: FileText },
+  { href: '/school-finder', label: 'Schools', icon: GraduationCap },
+  { href: '/cost-estimator', label: 'Costs', icon: DollarSign },
+  { href: '/emergency-triage', label: 'Emergency', icon: AlertTriangle },
+  { href: '/blog', label: 'Blog', icon: Newspaper },
+  { href: '/about', label: 'About', icon: Info },
+  { href: '/press', label: 'Press', icon: Megaphone },
+  { href: '/feedback', label: 'Feedback', icon: MessageCircle },
 ];
 
 export function Header() {
@@ -34,21 +45,22 @@ export function Header() {
 
       {/* Bottom navigation for mobile (larger touch targets for elderly) */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 md:hidden">
-        <div className="grid grid-cols-6 h-16">
+        <div className="flex flex-row items-center justify-start h-16 px-4 overflow-x-auto scroll-snap-x scroll-smooth">
           {navItems.map((item) => {
             const isActive = pathname === item.href;
+            const Icon = item.icon;
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  'flex flex-col items-center justify-center space-y-1 transition-colors',
+                  'flex flex-col items-center justify-center space-y-1 transition-colors flex-shrink-0 scroll-snap-align-start min-w-[70px] h-14 mx-2',
                   isActive
                     ? 'text-blue-600 bg-blue-50'
                     : 'text-gray-500 hover:bg-gray-50'
                 )}
               >
-                <span className="text-2xl">{item.icon}</span>
+                <Icon className="w-6 h-6" />
                 <span className="text-xs font-medium">{item.label}</span>
               </Link>
             );
@@ -62,18 +74,19 @@ export function Header() {
           <div className="flex h-14 items-center justify-center space-x-1">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
+              const Icon = item.icon;
               return (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    'px-6 py-3 rounded-xl text-base font-medium transition-colors',
+                    'px-6 py-3 rounded-xl text-base font-medium transition-colors flex items-center',
                     isActive
                       ? 'bg-blue-100 text-blue-700'
                       : 'text-gray-600 hover:bg-gray-100'
                   )}
                 >
-                  <span className="mr-2">{item.icon}</span>
+                  <Icon className="mr-2 w-4 h-4" />
                   {item.label}
                 </Link>
               );
@@ -83,7 +96,7 @@ export function Header() {
       </nav>
 
       {/* Spacer for mobile bottom nav */}
-      <div className="h-16 md:hidden" />
+      <div className="h-16 pb-[env(safe-area-inset-bottom)] md:hidden" />
     </>
   );
 }

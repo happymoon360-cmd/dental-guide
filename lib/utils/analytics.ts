@@ -7,7 +7,10 @@ export type AnalyticsEventType =
   | 'script_generated'
   | 'school_search'
   | 'cost_estimate'
-  | 'emergency_triage_viewed';
+  | 'emergency_triage_viewed'
+  | 'feedback_submitted'
+  | 'copy_script'
+  | 'school_website_click';
 
 /**
  * Analytics event structure
@@ -55,6 +58,12 @@ export function trackEvent(
     const trimmedEvents = events.slice(-MAX_EVENTS);
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(trimmedEvents));
+
+    // Send to Plausible Analytics (if available)
+    const plausible = (window as any).plausible;
+    if (plausible && typeof plausible === 'function') {
+      plausible(type, { props: metadata });
+    }
   } catch (error) {
     // Silently fail if localStorage is not available
     console.warn('Failed to track analytics event:', error);
@@ -105,6 +114,9 @@ export function getEventCounts(): Record<AnalyticsEventType, number> {
     school_search: counts.school_search || 0,
     cost_estimate: counts.cost_estimate || 0,
     emergency_triage_viewed: counts.emergency_triage_viewed || 0,
+    feedback_submitted: counts.feedback_submitted || 0,
+    copy_script: counts.copy_script || 0,
+    school_website_click: counts.school_website_click || 0,
   };
 }
 

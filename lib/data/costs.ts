@@ -116,6 +116,34 @@ export function estimateCost(procedure: Procedure, region: Region): string {
   return output;
 }
 
+export function getCostContext(procedure: Procedure, region: Region): {
+  generalNote: string;
+  priceFactors: string[];
+  regionalMultiplier: string;
+} {
+  const multiplier = regionMultiplier[region] ?? 1;
+  const multiplierPercent = Math.round((multiplier - 1) * 100);
+
+  const generalNote = 'Actual costs vary based on the complexity of your case, the provider\'s pricing, and your location. Dental school clinics typically charge 40–70% less than private practices for the same procedures.';
+
+  const priceFactors: string[] = [
+    'Geographic location',
+    'Complexity of the case',
+    'Provider type (private practice vs. dental school vs. community clinic)',
+    'Whether sedation is needed',
+    'Number of visits required',
+  ];
+
+  const regionalMultiplier = `${region === 'national_average' ? 'National average' : region}: prices are typically ${multiplierPercent}% ${multiplier > 1 ? 'higher' : multiplier < 1 ? 'lower' : 'equal to'} the national average`;
+
+  return {
+    generalNote,
+    priceFactors,
+    regionalMultiplier,
+  };
+}
+
+
 export const procedureOptions = [
   'exam_cleaning',
   'filling',
@@ -141,3 +169,25 @@ export const regionOptions = [
   'South (Texas, Florida)',
   'Mountain West (Denver, Phoenix)',
 ] as const;
+
+export const costSources = [
+  {
+    name: 'American Dental Association — Survey of Dental Fees',
+    url: 'https://www.ada.org/resources/practice/dental-fees',
+    year: 2024,
+  },
+  {
+    name: 'FAIR Health Consumer Cost Lookup',
+    url: 'https://www.fairhealthconsumer.org',
+    year: 2025,
+  },
+  {
+    name: 'Healthcare Bluebook — Fair Price Estimates',
+    url: 'https://www.healthcarebluebook.com',
+    year: 2025,
+  },
+] as const;
+
+export const costLastReviewed = '2025-02-07';
+
+export const costMethodology = 'Regional multipliers are based on cost-of-living adjustments from BLS data. Dental school discounts are approximate ranges based on educational institution pricing. Actual costs vary significantly based on complexity, provider, and specific circumstances.';

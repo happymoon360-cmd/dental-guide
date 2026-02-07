@@ -4,8 +4,13 @@ import { Header } from '@/components/layout/header';
 import { Container } from '@/components/layout/container';
 import { SchoolSearchForm } from '@/components/features/school-finder/school-search-form';
 import { SchoolList } from '@/components/features/school-finder/school-list';
+import { DisclaimerBanner } from '@/components/ui/disclaimer-banner';
+import { FeedbackPrompt } from '@/components/ui/feedback-prompt';
+import { useSchoolStore } from '@/lib/stores/school-store';
 
 export default function SchoolFinderPage() {
+  const { results } = useSchoolStore();
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -16,8 +21,14 @@ export default function SchoolFinderPage() {
               Dental Schools
             </h1>
 
+            <DisclaimerBanner variant="informational" />
+
             <SchoolSearchForm />
             <SchoolList />
+            <FeedbackPrompt
+              toolName="school_finder"
+              shouldShow={results.length > 0}
+            />
           </div>
         </Container>
       </main>

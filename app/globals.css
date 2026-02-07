@@ -123,4 +123,28 @@
     background: white;
     color: black;
   }
+
+/* Print-friendly styles */
+@media print {
+  /* Hide navigation, footer, feedback prompts, and disclaimers */
+  header, footer, .feedback-prompt, .no-print {
+    display: none !important;
+  }
+
+  /* Ensure script output is full-width */
+  .script-output {
+    width: 100%;
+    max-width: none;
+  }
+
+  /* Ensure readable font sizes */
+  body {
+    font-size: 12pt;
+  }
+
+  /* Avoid page breaks inside script cards */
+  .script-card {
+    break-inside: avoid;
+  }
+}
 }

@@ -124,14 +124,27 @@ export const useSchoolStore = create<SchoolState>()(
               })
             );
 
-            // Sort by distance
+            const getVerificationPriority = (school: SchoolWithDistance): number => {
+              if (!school.lastVerified) return 3;
+              const daysSinceVerification = (Date.now() - new Date(school.lastVerified).getTime()) / (1000 * 60 * 60 * 24);
+              if (daysSinceVerification > 180) return 2;
+              if (school.verificationStatus === 'verified') return 0;
+              if (school.verificationStatus === 'unverified') return 1;
+              return 3;
+            };
+
             withPriority.sort((a, b) => {
               const distanceA = a.priority ?? Infinity;
               const distanceB = b.priority ?? Infinity;
-              if (distanceA === distanceB) {
-                return a.name.localeCompare(b.name);
+              if (distanceA !== distanceB) {
+                return distanceA - distanceB;
               }
-              return distanceA - distanceB;
+              const verificationA = getVerificationPriority(a);
+              const verificationB = getVerificationPriority(b);
+              if (verificationA !== verificationB) {
+                return verificationA - verificationB;
+              }
+              return a.name.localeCompare(b.name);
             });
 
             // Load remaining schools in background

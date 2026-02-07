@@ -168,3 +168,16 @@ export const symptomOptions = [
   'hot_sensitivity',
   'bad_taste_smell',
 ] as const;
+
+export const urgencySources = [
+  {
+    name: 'American Dental Association — Dental Emergency Guide',
+    url: 'https://www.ada.org/resources/research/science-and-research-institute/oral-health-topics/dental-emergencies',
+  },
+  {
+    name: 'MedlinePlus — Dental Emergencies',
+    url: 'https://medlineplus.gov/ency/article/000040.htm',
+  },
+] as const;
+
+export const urgencyLastReviewed = '2025-02-07';

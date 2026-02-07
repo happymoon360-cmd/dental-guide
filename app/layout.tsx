@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import { ThemeProvider } from '@/components/providers/theme-provider';
 import { Footer } from '@/components/layout/footer';
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.zippopotam.us; frame-ancestors 'none';",
+    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.zippopotam.us https://nominatim.openstreetmap.org https://plausible.io; frame-ancestors 'none';",
   },
   alternates: {
     canonical: 'https://dental.guide',
@@ -68,6 +69,14 @@ export default function RootLayout({
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#2b6cb0" />
         <meta name="msapplication-TileColor" content="#2b6cb0" />
         <meta name="theme-color" content="#2b6cb0" />
+        {process.env.NEXT_PUBLIC_ANALYTICS_DOMAIN && (
+          <Script
+            defer
+            data-domain={process.env.NEXT_PUBLIC_ANALYTICS_DOMAIN}
+            src="https://plausible.io/js/script.js"
+            strategy="afterInteractive"
+          />
+        )}
       </head>
       <body className={cn(inter.variable, 'min-h-screen antialiased')}>
         <ThemeProvider

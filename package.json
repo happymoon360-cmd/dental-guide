@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:e2e": "playwright test",
-    "test": "npm run test:e2e"
+    "test:e2e": "playwright test \".*\\.spec\\.js\"",
+    "test": "vitest run tests/unit/",
+    "check:data": "npx tsx scripts/check-data-freshness.ts"
   },
   "dependencies": {
     "next": "14.2.15",

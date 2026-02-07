@@ -6,10 +6,10 @@ export function Footer() {
       <div className="max-w-4xl mx-auto space-y-3">
         <div className="flex justify-center space-x-6">
           <Link
-            href="/analytics"
+            href="/press"
             className="text-xs text-blue-600 hover:text-blue-800 underline"
           >
-            Analytics
+            Press
           </Link>
         </div>
         <p className="text-xs text-muted-foreground text-center leading-relaxed">

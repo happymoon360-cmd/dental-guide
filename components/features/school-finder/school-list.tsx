@@ -61,7 +61,6 @@ function getVerificationBadge(school: School): string {
   const status = school.verificationStatus;
   const lastVerified = school.lastVerified;
 
-  // Calculate days since last verification
   const daysSinceVerification = lastVerified
     ? Math.floor((Date.now() - new Date(lastVerified).getTime()) / (1000 * 60 * 60 * 24))
     : null;
@@ -84,6 +83,18 @@ function getVerificationBadge(school: School): string {
   }
 
   return 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400';
+}
+
+function getVerificationBadgeTooltip(school: School): string {
+  const lastVerified = school.lastVerified;
+
+  if (!lastVerified) {
+    return 'No verification date available';
+  }
+
+  const daysSinceVerification = Math.floor((Date.now() - new Date(lastVerified).getTime()) / (1000 * 60 * 60 * 24));
+
+  return `Last verified: ${formatDate(lastVerified)} (${daysSinceVerification} days ago)`;
 }
 
 export function SchoolList() {
@@ -141,14 +152,17 @@ export function SchoolList() {
                     <div className="space-y-3">
                       <div className="flex items-start justify-between gap-4">
                         <div className="flex items-center gap-1 group relative">
-                          <div>
-                            <h3 className="heading-md font-semibold">{school.name}</h3>
-                            {school.verificationStatus && (
-                              <div className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${getVerificationBadge(school)}`}>
-                                {school.verificationStatus === 'verified' ? 'Verified' : school.verificationStatus}
-                              </div>
-                            )}
-                          </div>
+                           <div>
+                             <h3 className="heading-md font-semibold">{school.name}</h3>
+                             {school.verificationStatus && (
+                               <div
+                                 className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${getVerificationBadge(school)}`}
+                                 title={getVerificationBadgeTooltip(school)}
+                               >
+                                 {school.verificationStatus === 'verified' ? 'Verified' : school.verificationStatus}
+                               </div>
+                             )}
+                           </div>
                         </div>
                       </div>
 

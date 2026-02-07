@@ -14,10 +14,12 @@ interface SchoolState {
   state: string;
   onlyComplete: boolean;
   includeCommunityClinics: boolean;
+  sortBy: 'recently-verified' | 'distance' | 'alphabetical';
   setZip: (zip: string) => void;
   setState: (state: string) => void;
   setOnlyComplete: (onlyComplete: boolean) => void;
   setIncludeCommunityClinics: (includeCommunityClinics: boolean) => void;
+  setSortBy: (sortBy: 'recently-verified' | 'distance' | 'alphabetical') => void;
   searchSchools: () => Promise<void>;
   clearResults: () => void;
   getStates: () => string[];
@@ -64,6 +66,7 @@ export const useSchoolStore = create<SchoolState>()(
       state: 'ALL',
       onlyComplete: false,
       includeCommunityClinics: false,
+      sortBy: 'recently-verified',
 
       setZip: (zip: string) => {
         set({ zip });
@@ -79,6 +82,10 @@ export const useSchoolStore = create<SchoolState>()(
 
       setIncludeCommunityClinics: (includeCommunityClinics: boolean) => {
         set({ includeCommunityClinics, schools: getEffectiveSchools(includeCommunityClinics) });
+      },
+
+      setSortBy: (sortBy: 'recently-verified' | 'distance' | 'alphabetical') => {
+        set({ sortBy });
       },
 
       searchSchools: async () => {
@@ -139,17 +146,27 @@ export const useSchoolStore = create<SchoolState>()(
               return 3;
             };
 
+            const sortBy = get().sortBy;
+
             withPriority.sort((a, b) => {
+              if (sortBy === 'recently-verified') {
+                const verificationA = getVerificationPriority(a);
+                const verificationB = getVerificationPriority(b);
+                if (verificationA !== verificationB) {
+                  return verificationA - verificationB;
+                }
+              }
+
               const distanceA = a.priority ?? Infinity;
               const distanceB = b.priority ?? Infinity;
-              if (distanceA !== distanceB) {
+              if (distanceA !== distanceB && sortBy !== 'alphabetical') {
                 return distanceA - distanceB;
               }
-              const verificationA = getVerificationPriority(a);
-              const verificationB = getVerificationPriority(b);
-              if (verificationA !== verificationB) {
-                return verificationA - verificationB;
+
+              if (sortBy === 'alphabetical') {
+                return a.name.localeCompare(b.name);
               }
+
               return a.name.localeCompare(b.name);
             });
 
@@ -174,7 +191,29 @@ export const useSchoolStore = create<SchoolState>()(
               })
             );
 
+            const sortBy = get().sortBy;
+            const getVerificationPriority = (school: SchoolWithDistance): number => {
+              if (!school.lastVerified) return 3;
+              const daysSinceVerification = (Date.now() - new Date(school.lastVerified).getTime()) / (1000 * 60 * 60 * 24);
+              if (daysSinceVerification > 180) return 2;
+              if (school.verificationStatus === 'verified') return 0;
+              if (school.verificationStatus === 'unverified') return 1;
+              return 3;
+            };
+
             const sorted = withDistance.sort((a, b) => {
+              if (sortBy === 'recently-verified') {
+                const verificationA = getVerificationPriority(a);
+                const verificationB = getVerificationPriority(b);
+                if (verificationA !== verificationB) {
+                  return verificationA - verificationB;
+                }
+              }
+
+              if (sortBy === 'alphabetical') {
+                return a.name.localeCompare(b.name);
+              }
+
               const distanceA = a.distanceMiles ?? Number.POSITIVE_INFINITY;
               const distanceB = b.distanceMiles ?? Number.POSITIVE_INFINITY;
               if (distanceA === distanceB) {

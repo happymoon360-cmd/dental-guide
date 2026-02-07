@@ -1,4 +1,4 @@
-// File: /Users/heoseogjun/Library/CloudStorage/OneDrive-Personal/Project/Dental Guide/app/layout.tsx
+// File: /Users/jun/Projects/Dental Guide/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

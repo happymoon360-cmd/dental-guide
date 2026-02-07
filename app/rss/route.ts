@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const baseUrl = 'https://dental.guide';
+  const baseUrl = 'https://dental-guide-eta.vercel.app';
   const currentDate = new Date().toUTCString();
 
   const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -15,7 +15,7 @@ export async function GET() {
     <lastBuildDate>${currentDate}</lastBuildDate>
     <pubDate>${currentDate}</pubDate>
     <ttl>60</ttl>
-    <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="${baseUrl}/rss" rel="self" type="application/rss+xml"/>
     <item>
       <title>How to Find Affordable Dental Care</title>
       <description>Discover proven strategies for finding low-cost dental services in your area, including dental schools, community clinics, and negotiation tactics.</description>

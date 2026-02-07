@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware';
 import type { SchoolWithDistance, School, SchoolSearchParams } from '@/lib/types';
 import { dentalSchools } from '@/lib/data/schools';
 import { communityClinics } from '@/lib/data/community-clinics';
-import { fetchZipLocation, haversineMiles, isSchoolComplete, getUniqueStates } from '@/lib/utils/geolocation';
+import { fetchUsZipInfo, fetchZipLocation, haversineMiles, isSchoolComplete, getUniqueStates } from '@/lib/utils/geolocation';
 
 interface SchoolState {
   schools: School[];
@@ -99,7 +99,8 @@ export const useSchoolStore = create<SchoolState>()(
           }
 
           // Get user location from ZIP
-          const userLocation = zip ? await fetchZipLocation(zip) : null;
+          const userZipInfo = zip ? await fetchUsZipInfo(zip) : null;
+          const userLocation = userZipInfo?.location || null;
 
           if (zip && !userLocation) {
             set({
@@ -110,7 +111,12 @@ export const useSchoolStore = create<SchoolState>()(
             return;
           }
 
-          // Priority-based lazy loading: load top 10 schools first
+          // If user entered a ZIP and did not pick a state, default to the ZIP state (US only).
+          if (userLocation && (!state || state === 'ALL') && userZipInfo?.stateAbbr) {
+            filtered = filtered.filter((school) => school.state === userZipInfo.stateAbbr);
+          }
+
+          // Priority-based lazy loading: load up to 10 schools first (rate limiter is 10 per minute)
           if (userLocation && filtered.length > 10) {
             // Sort by distance first for priority
             const withPriority = await Promise.all(
@@ -147,25 +153,11 @@ export const useSchoolStore = create<SchoolState>()(
               return a.name.localeCompare(b.name);
             });
 
-            // Load remaining schools in background
-            const restSchools = filtered.slice(10);
-            setTimeout(() => {
-              Promise.all(
-                restSchools.map(async (school) => {
-                  if (!school.zip) return;
-                  await fetchZipLocation(school.zip);
-                })
-              ).then(() => {
-                // Re-run search to get all results
-                get().searchSchools();
-              });
-            }, 0);
-
-            set({
-              isLoading: false,
-              results: withPriority,
-              error: null,
-            });
+             set({
+               isLoading: false,
+               results: withPriority,
+               error: null,
+             });
           } else {
             // Load all schools immediately (less than 10)
             const withDistance = await Promise.all(

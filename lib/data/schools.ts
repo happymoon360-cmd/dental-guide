@@ -9,6 +9,8 @@ export const dentalSchools: School[] = [
     phone: '(973) 972-4242',
     website: 'https://sdm.rutgers.edu',
     notes: 'Student, resident, and faculty clinics operating. Low-cost treatment provided.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'NYU College of Dentistry',
@@ -18,6 +20,8 @@ export const dentalSchools: School[] = [
     phone: '(212) 998-9800',
     website: 'https://dental.nyu.edu',
     notes: 'Student clinic operating.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'UCLA School of Dentistry',
@@ -27,6 +31,8 @@ export const dentalSchools: School[] = [
     phone: '(310) 825-5123',
     website: 'https://www.dentistry.ucla.edu',
     notes: 'Student, resident, and faculty treatment options available. Reduced fees based on educational institution.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Michigan School of Dentistry',
@@ -36,6 +42,8 @@ export const dentalSchools: School[] = [
     phone: '(734) 763-6933',
     website: 'https://dent.umich.edu',
     notes: 'Student clinic operating. Student clinic costs approximately 50% of local private practice.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'UTHealth School of Dentistry',
@@ -45,6 +53,8 @@ export const dentalSchools: School[] = [
     phone: '(713) 486-4000',
     website: 'https://dentistry.uth.edu',
     notes: 'Student clinic with faculty supervision. Emergency clinic initial exam fee $22, most treatments under $200.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Harvard School of Dental Medicine',
@@ -54,6 +64,8 @@ export const dentalSchools: School[] = [
     phone: '(617) 432-1443',
     website: 'https://www.hsdm.harvard.edu',
     notes: 'Student and resident treatment at Teaching Practice. Lower cost than faculty treatment. Some insurance accepted in-network including MassHealth.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Tufts University School of Dental Medicine',
@@ -63,6 +75,8 @@ export const dentalSchools: School[] = [
     phone: '(617) 636-6828',
     website: 'https://dental.tufts.edu',
     notes: 'Dental school clinic costs lower than private practice. Teaching Clinic fees up to 50% lower.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Boston University Henry M. Goldman School of Dental Medicine',
@@ -72,6 +86,8 @@ export const dentalSchools: School[] = [
     phone: '(617) 358-8300',
     website: 'https://www.bu.edu/dental',
     notes: 'Student treatment with supervision. Significantly lower cost than private practice. New patients accepted.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Columbia University College of Dental Medicine',
@@ -81,6 +97,8 @@ export const dentalSchools: School[] = [
     phone: '(212) 305-6100',
     website: 'https://www.dental.columbia.edu',
     notes: 'Educational treatment with lower fees than private practice. Medicaid accepted. No sliding fee scale.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Pennsylvania School of Dental Medicine',
@@ -90,6 +108,8 @@ export const dentalSchools: School[] = [
     phone: '(215) 898-8965',
     website: 'https://www.dental.upenn.edu',
     notes: 'Student and resident treatment at teaching clinic. Average 50-70% lower cost. Medicaid accepted.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Temple University Kornberg School of Dentistry',
@@ -99,6 +119,8 @@ export const dentalSchools: School[] = [
     phone: '(215) 707-2900',
     website: 'https://dentistry.temple.edu',
     notes: 'Dental Pass and income-based sliding fee scale available. PA Medical Assistance patients treated.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Pittsburgh School of Dental Medicine',
@@ -108,6 +130,8 @@ export const dentalSchools: School[] = [
     phone: '(412) 648-8616',
     website: 'https://www.dental.pitt.edu',
     notes: 'DMD student treatment at General Dentistry Practice. Faculty treatment available.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Maryland School of Dentistry',
@@ -117,6 +141,8 @@ export const dentalSchools: School[] = [
     phone: '(410) 706-7101',
     website: 'https://www.dental.umaryland.edu',
     notes: 'Student clinic treatment available. Student treatment fees lower than private practice.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Howard University College of Dentistry',
@@ -126,6 +152,8 @@ export const dentalSchools: School[] = [
     phone: '(202) 806-0007',
     website: 'https://dentistry.howard.edu',
     notes: 'Comprehensive dental clinic operating. Low-cost treatment for public under guidance of experienced dentists.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Virginia Commonwealth University School of Dentistry',
@@ -135,6 +163,8 @@ export const dentalSchools: School[] = [
     phone: '(804) 828-9190',
     website: 'https://dentistry.vcu.edu',
     notes: 'Student and specialty clinics accept Medicaid. Delta Dental (VA) in-network. No sliding fee scale. Student discount plan (6 months $40, exam/X-rays/cleaning up to 80%, fillings 60%). Student clinic initial screening $79.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of North Carolina Adams School of Dentistry',
@@ -144,6 +174,8 @@ export const dentalSchools: School[] = [
     phone: '(919) 537-3737',
     website: 'https://dentistry.unc.edu',
     notes: 'Student clinic low-cost (approx. 3 hours). Medicaid and Delta Dental accepted. No sliding fee scale or free treatment. Some specialty clinics about 50% of private fees.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'East Carolina University School of Dental Medicine',
@@ -153,6 +185,8 @@ export const dentalSchools: School[] = [
     phone: '(252) 737-7834',
     website: 'https://dental.ecu.edu',
     notes: 'Student and resident clinic costs lower than private practice. Medicaid and most private insurance accepted. Initial screening free (excluding radiography costs).',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Florida College of Dentistry',
@@ -162,6 +196,8 @@ export const dentalSchools: School[] = [
     phone: '(352) 273-6700',
     website: 'https://dental.ufl.edu',
     notes: 'Student and resident clinic fees approximately 50%/80% of private practice. Extensive group insurance and Medicaid accepted. Assigned to student/resident/faculty clinic after screening.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Nova Southeastern University College of Dental Medicine',
@@ -171,6 +207,8 @@ export const dentalSchools: School[] = [
     phone: '(954) 262-7500',
     website: 'https://dental.nova.edu',
     notes: 'Student and resident clinic discounted fees with longer appointments. Some off-site clinics accept Medicaid. CareCredit available. Davie emergency walk-in clinic operating.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Alabama at Birmingham School of Dentistry',
@@ -180,6 +218,8 @@ export const dentalSchools: School[] = [
     phone: '(205) 934-3000',
     website: 'https://www.uab.edu/dentistry',
     notes: 'Student and resident clinic low-cost (up to ~50% less than private). Blue Cross AL and MetLife in-network. Medicaid and Medicare accepted. Payment due on treatment day.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Louisiana State University Health Sciences Center School of Dentistry',
@@ -189,6 +229,8 @@ export const dentalSchools: School[] = [
     phone: '(504) 619-8700',
     website: 'https://www.lsusd.lsuhsc.edu',
     notes: 'Student clinic costs significantly lower than private practice. Medicaid accepted (especially pediatric and dentures). Initial evaluation appointment fee $140 (applied to future treatment). Student treatment takes 3-4 hours.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Tennessee Health Science Center College of Dentistry',
@@ -198,6 +240,8 @@ export const dentalSchools: School[] = [
     phone: '(901) 448-6200',
     website: 'https://www.uthsc.edu/dentistry',
     notes: 'Student clinic fees lower than private practice. Assigned after screening. Payment at start of treatment. Insurance claims submitted by patient.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Kentucky College of Dentistry',
@@ -207,6 +251,8 @@ export const dentalSchools: School[] = [
     phone: '(859) 323-8085',
     website: 'https://dentistry.uky.edu',
     notes: 'Student, resident, and faculty clinics operating. Student clinic costs approximately 30-50% lower than private practice. Emergency clinic evaluation fee $132.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Louisville School of Dentistry',
@@ -216,6 +262,8 @@ export const dentalSchools: School[] = [
     phone: '(502) 852-5096',
     website: 'https://louisville.edu/dentistry',
     notes: 'Student clinic costs up to 50% lower than private practice. Kentucky Medicaid, commercial insurance, and Medicare (medical only) accepted. Non-refundable $75 after screening appointment. Treatment takes up to 3 hours.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'The Ohio State University College of Dentistry',
@@ -225,6 +273,8 @@ export const dentalSchools: School[] = [
     phone: '(614) 688-3763',
     website: 'https://dentistry.osu.edu',
     notes: 'Student clinic costs 40-50% lower than Columbus average. Medicaid, Delta Dental, and other insurance accepted. Screening fee $118-$170. Treatment takes approximately 3 hours.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Case Western Reserve University School of Dental Medicine',
@@ -234,6 +284,8 @@ export const dentalSchools: School[] = [
     phone: '(216) 368-8730',
     website: 'https://case.edu/dental',
     notes: 'Student comprehensive clinic under supervising dentist. Appointments may take half a day. Fees approximately 40-60% lower than private practice. Medicaid accepted.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Minnesota School of Dentistry',
@@ -243,6 +295,8 @@ export const dentalSchools: School[] = [
     phone: '(612) 625-2495',
     website: 'https://dentistry.umn.edu',
     notes: 'Student comprehensive treatment clinic operating (faculty supervision). Costs approximately 30% lower than Twin Cities average. Most private insurance, Medical Assistance, and MinnesotaCare accepted. Interest-free installment payments available.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Iowa College of Dentistry',
@@ -252,6 +306,8 @@ export const dentalSchools: School[] = [
     phone: '(319) 335-7499',
     website: 'https://dentistry.uiowa.edu',
     notes: 'Student clinic operating. Most private insurance accepted with billing support. Iowa Medicaid and Dental Wellness Plan participating (out-of-state Medicaid not accepted). Interest-free installment payments available for high-cost treatments.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Marquette University School of Dentistry',
@@ -261,6 +317,8 @@ export const dentalSchools: School[] = [
     phone: '(414) 288-6790',
     website: 'https://www.marquette.edu/dentistry',
     notes: 'Dental school student clinic costs approximately 50% lower than private practice. Wisconsin Medicaid (ForwardHealth) accepted. Full payment required at each visit.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Illinois Chicago College of Dentistry',
@@ -270,6 +328,8 @@ export const dentalSchools: School[] = [
     phone: '(312) 996-7555',
     website: 'https://dentistry.uic.edu',
     notes: 'Teaching clinic reduced fees available. Delta Dental IL and Medicaid (some clinics) accepted. Payment at time of treatment (no installment payments).',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Indiana University School of Dentistry',
@@ -279,6 +339,8 @@ export const dentalSchools: School[] = [
     phone: '(317) 274-7433',
     website: 'https://dentistry.iu.edu',
     notes: 'Significantly lower fees than private practice. Multiple insurance and Medicaid accepted. Installment payments available for high-cost treatments under contract.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Missouri-Kansas City School of Dentistry',
@@ -288,6 +350,8 @@ export const dentalSchools: School[] = [
     phone: '(816) 235-2100',
     website: 'https://dentistry.umkc.edu',
     notes: 'Student and resident clinic costs 1/3 to 1/2 of private practice. Missouri and Kansas Medicaid accepted. Full payment on treatment day.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Nebraska Medical Center College of Dentistry',
@@ -297,6 +361,8 @@ export const dentalSchools: School[] = [
     phone: '(402) 472-1333',
     website: 'https://www.unmc.edu/dentistry',
     notes: 'Significantly lower fees than local area. Ameritas, BCBS, and Nebraska Medicaid accepted (after March 2025, new Medicaid only for pediatric and specialty training clinics).',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Creighton University School of Dentistry',
@@ -306,6 +372,8 @@ export const dentalSchools: School[] = [
     phone: '(402) 280-5990',
     website: 'https://www.creighton.edu/dentistry',
     notes: 'Educational treatment basis with lower costs than local area. Most insurance and Nebraska/Iowa Medicaid accepted. Same-day payment policy.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Colorado School of Dental Medicine',
@@ -315,6 +383,8 @@ export const dentalSchools: School[] = [
     phone: '(303) 724-6900',
     website: 'https://dental.cuanschutz.edu',
     notes: 'Student clinic costs up to 50% lower than local private practice. Health First Colorado (Medicaid) accepted. Delta Dental in-network (other insurance may be out-of-network). Student clinic denture discount $249/arch.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Washington School of Dentistry',
@@ -324,6 +394,8 @@ export const dentalSchools: School[] = [
     phone: '(206) 616-6996',
     website: 'https://dental.washington.edu',
     notes: 'Student clinic costs approximately 30-40% lower than Seattle private practice. Apple Health (Medicaid) accepted. No sliding fee scale. UW Community Dental Plan for Medicaid-eligible offers up to 85% discount from average.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Oregon Health & Science University School of Dentistry',
@@ -333,6 +405,8 @@ export const dentalSchools: School[] = [
     phone: '(503) 494-8867',
     website: 'https://www.ohsu.edu/school-of-dentistry',
     notes: 'Comprehensive education and specialty clinic costs 30-40% lower than local private practice. Oregon Health Plan (Medicaid) and Washington Apple Health accepted. Most Delta Dental and BCBS accepted.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'University of Utah School of Dentistry',
@@ -342,6 +416,8 @@ export const dentalSchools: School[] = [
     phone: '(801) 587-6453',
     website: 'https://dentistry.utah.edu',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Midwestern University College of Dental Medicine-Arizona',
@@ -352,6 +428,8 @@ export const dentalSchools: School[] = [
     website:
       'https://www.midwestern.edu/academics/degrees-programs/doctor-dental-medicine-program/college-dental-medicine-arizona',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'University of Nevada, Las Vegas School of Dental Medicine',
@@ -361,6 +439,8 @@ export const dentalSchools: School[] = [
     phone: '(702) 774-2400',
     website: 'https://www.unlv.edu/dental',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Roseman University College of Dental Medicine',
@@ -370,6 +450,8 @@ export const dentalSchools: School[] = [
     phone: '(801) 878-1200',
     website: 'https://www.roseman.edu',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'University of the Pacific Arthur A. Dugoni School of Dentistry',
@@ -379,6 +461,8 @@ export const dentalSchools: School[] = [
     phone: '(415) 929-6486',
     website: 'https://www.pacific.edu/dental',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'USC Herman Ostrow School of Dentistry',
@@ -388,6 +472,8 @@ export const dentalSchools: School[] = [
     phone: '(213) 740-2800',
     website: 'https://dentistry.usc.edu',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'UCSF School of Dentistry',
@@ -397,6 +483,8 @@ export const dentalSchools: School[] = [
     phone: '(415) 476-1891',
     website: 'https://dentschool.ucsf.edu',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Loma Linda University School of Dentistry',
@@ -406,6 +494,8 @@ export const dentalSchools: School[] = [
     phone: '(909) 558-4621',
     website: 'https://dentistry.llu.edu',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Western University of Health Sciences College of Dental Medicine',
@@ -415,6 +505,8 @@ export const dentalSchools: School[] = [
     phone: '(909) 469-5441',
     website: 'https://www.westernu.edu/dentistry',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Midwestern University College of Dental Medicine-Illinois',
@@ -424,6 +516,8 @@ export const dentalSchools: School[] = [
     phone: '(630) 743-4500',
     website: 'https://clinics.midwestern.edu/downers-grove-clinic/dental-institute-il',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Texas A&M College of Dentistry',
@@ -433,6 +527,8 @@ export const dentalSchools: School[] = [
     phone: '(214) 828-8100',
     website: 'https://dentistry.tamu.edu',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'UT Health San Antonio School of Dentistry',
@@ -442,6 +538,8 @@ export const dentalSchools: School[] = [
     phone: '(210) 450-3700',
     website: 'https://uthscsa.edu/dental',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'University of Oklahoma College of Dentistry',
@@ -451,6 +549,8 @@ export const dentalSchools: School[] = [
     phone: '(405) 271-7744',
     website: 'https://dentistry.ouhsc.edu',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'University of Arkansas for Medical Sciences College of Dentistry',
@@ -460,6 +560,8 @@ export const dentalSchools: School[] = [
     phone: '(501) 526-7619',
     website: 'https://uamshealth.com/expertise/dental-care/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'University of Mississippi Medical Center School of Dentistry',
@@ -469,6 +571,8 @@ export const dentalSchools: School[] = [
     phone: '(601) 984-6155',
     website: 'https://umc.edu/Healthcare/Dentistry-and-Oral-Health/Dentistry_and_Oral_Health_Home.html',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Meharry Medical College School of Dentistry',
@@ -478,6 +582,8 @@ export const dentalSchools: School[] = [
     phone: '(615) 327-6900',
     website: 'https://meharry.edu/meharry-clinics/dental-clinic/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'University of Detroit Mercy School of Dentistry',
@@ -487,6 +593,8 @@ export const dentalSchools: School[] = [
     phone: '(313) 494-6700',
     website: 'https://dentalpatients.udmercy.edu/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Touro College of Dental Medicine',
@@ -496,6 +604,8 @@ export const dentalSchools: School[] = [
     phone: '(914) 594-2700',
     website: 'https://dental.touro.edu/patients/ny/location--contact/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'University of New England College of Dental Medicine',
@@ -505,6 +615,8 @@ export const dentalSchools: School[] = [
     phone: '(207) 221-4747',
     website: 'https://www.une.edu/dentalmedicine',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'University at Buffalo School of Dental Medicine',
@@ -514,6 +626,8 @@ export const dentalSchools: School[] = [
     phone: '(716) 560-5127',
     website: 'https://dental.buffalo.edu',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'University of Connecticut School of Dental Medicine',
@@ -523,6 +637,8 @@ export const dentalSchools: School[] = [
     phone: '(860) 679-7600',
     website: 'https://dentalmedicine.uconn.edu',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'LECOM School of Dental Medicine',
@@ -532,6 +648,8 @@ export const dentalSchools: School[] = [
     phone: '(941) 405-1600',
     website: 'https://lecom.edu/dental/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Dental College of Georgia at Augusta University',
@@ -541,6 +659,8 @@ export const dentalSchools: School[] = [
     phone: '(706) 721-2371',
     website: 'https://www.augusta.edu/dentalmedicine/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Southern Illinois University School of Dental Medicine',
@@ -550,6 +670,8 @@ export const dentalSchools: School[] = [
     phone: '(618) 474-7000',
     website: 'https://www.siue.edu/dental/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'A.T. Still University Missouri School of Dentistry & Oral Health',
@@ -559,6 +681,8 @@ export const dentalSchools: School[] = [
     phone: '(660) 626-2019',
     website: 'https://www.atsu.edu/missouri-school-of-dentistry-and-oral-health',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Kansas City University College of Dental Medicine',
@@ -568,6 +692,8 @@ export const dentalSchools: School[] = [
     phone: '(417) 208-0806',
     website: 'https://www.kansascity.edu/oral-health-center',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Stony Brook University School of Dental Medicine',
@@ -577,6 +703,8 @@ export const dentalSchools: School[] = [
     phone: '(631) 632-8989',
     website: 'https://dentistry.stonybrookmedicine.edu',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'High Point University School of Dental Medicine and Oral Health',
@@ -586,6 +714,8 @@ export const dentalSchools: School[] = [
     phone: '(336) 951-7892',
     website: 'https://www.highpoint.edu/dental-medicine/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Texas Tech University Health Sciences Center El Paso-Hunt School of Dentistry',
@@ -593,8 +723,10 @@ export const dentalSchools: School[] = [
     state: 'TX',
     zip: '79905',
     phone: '(915) 215-6700',
-    website: 'https://ttdentalcare.com',
-    notes: 'Contact verified',
+    website: 'https://ttuhscep.edu/sdm/',
+    notes: 'Contact verified - Updated URL Feb 2025',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Arizona School of Dentistry & Oral Health',
@@ -604,6 +736,8 @@ export const dentalSchools: School[] = [
     phone: '(480) 248-8100',
     website: 'https://www.atsu.edu/arizona-school-of-dentistry-and-oral-health',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'California Northstate University College of Dental Medicine',
@@ -613,6 +747,8 @@ export const dentalSchools: School[] = [
     phone: '(916) 686-8914',
     website: 'https://dentalmedicine.cnsu.edu/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Medical University of South Carolina College of Dental Medicine',
@@ -622,6 +758,8 @@ export const dentalSchools: School[] = [
     phone: '(843) 792-4892',
     website: 'https://dentistry.musc.edu',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Lincoln Memorial University College of Dental Medicine',
@@ -631,6 +769,8 @@ export const dentalSchools: School[] = [
     phone: '(865) 370-2148',
     website: 'https://www.lmunet.edu/college-of-dental-medicine/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'University of Puerto Rico School of Dental Medicine',
@@ -640,6 +780,8 @@ export const dentalSchools: School[] = [
     phone: '(787) 758-2525',
     website: 'https://dental.rcm.upr.edu/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Universidad Ana G. Mendez School of Dental Medicine',
@@ -649,6 +791,8 @@ export const dentalSchools: School[] = [
     phone: '(787) 743-7979',
     website: 'https://uagm.edu/es/school-dental-medicine',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Ponce Health Sciences University School of Dental Medicine',
@@ -658,6 +802,8 @@ export const dentalSchools: School[] = [
     phone: '(787) 840-2575',
     website: 'https://phsu.edu/academics/schools/school-of-dental-medicine.php',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Lyon College School of Dental Medicine',
@@ -665,8 +811,10 @@ export const dentalSchools: School[] = [
     state: 'AR',
     zip: '72204',
     phone: '(501) 779-4566',
-    website: 'https://www.lyon.edu/dental-medicine',
-    notes: 'Newest dental school, first class admitted 2024. Low-cost student clinic with faculty supervision.',
+    website: 'https://lyoninstitute.com/',
+    notes: 'Newest dental school, first class admitted June 2025. Low-cost student clinic with faculty supervision. Updated URL Feb 2025.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'Eastman Institute for Oral Health',
@@ -676,6 +824,8 @@ export const dentalSchools: School[] = [
     phone: '(585) 275-5051',
     website: 'https://www.urmc.rochester.edu/dentistry',
     notes: 'University of Rochester-affiliated. Advanced specialty care and general dentistry clinics. Accepts various insurance including Medicaid.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'West Virginia University School of Dentistry',
@@ -685,6 +835,8 @@ export const dentalSchools: School[] = [
     phone: '(304) 293-2555',
     website: 'https://hsc.wvu.edu/dentistry',
     notes: 'Student clinic with faculty supervision. Fees approximately 40-50% lower than private practice. West Virginia Medicaid accepted.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'High Point University Workman School of Dental Medicine',
@@ -694,6 +846,8 @@ export const dentalSchools: School[] = [
     phone: '(336) 951-7892',
     website: 'https://www.highpoint.edu/dental-medicine/',
     notes: 'Contact verified',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'verified',
   },
   {
     name: 'University of Rochester Eastman Institute for Oral Health',
@@ -703,6 +857,8 @@ export const dentalSchools: School[] = [
     phone: '(585) 275-7473',
     website: 'https://www.urmc.rochester.edu/dentistry/patients.aspx',
     notes: 'Comprehensive dental care including emergency services. Sliding fee scale available for qualifying patients.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Northeast Ohio Medical University Bitonte College of Dentistry',
@@ -712,6 +868,8 @@ export const dentalSchools: School[] = [
     phone: '(330) 325-6600',
     website: 'https://www.neomed.edu/dentistry',
     notes: 'Opening August 2025 - new dental school',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Pacific Northwest University School of Dental Medicine',
@@ -721,5 +879,7 @@ export const dentalSchools: School[] = [
     phone: '(509) 452-5100',
     website: 'https://www.pnwu.edu/school-of-dental-medicine',
     notes: 'Opening August 2025 - new dental school',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 ];

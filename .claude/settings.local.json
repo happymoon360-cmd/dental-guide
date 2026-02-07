@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "Bash(npx eslint:*)",
+      "Bash(npx tsc:*)",
+      "mcp__plugin_oh-my-claudecode_omc-tools__lsp_diagnostics_directory",
+      "Bash(npm run lint)",
+      "Bash(vercel:*)",
+      "Bash(npm install:*)",
+      "mcp__plugin_oh-my-claudecode_omc-tools__lsp_diagnostics",
+      "Bash(grep:*)",
+      "Bash(curl:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(test:*)",
+      "WebSearch",
+      "Bash(pkill:*)"
+    ]
+  }
+}

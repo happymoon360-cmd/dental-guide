@@ -1,234 +1,565 @@
-# 프로젝트 계획
+# Dental Guide — Post-MVP Implementation Plan
 
-## 목표
-- MVP 기능을 빠르게 검증
-- 사용자 피드백을 바탕으로 매칭/데이터 확장
-
-## 단기 계획 (1주일 이내)
-
-| 우선순위 | 작업명 | 상세 설명 | 예상 시작일 | 완료 목표일 | 예상 소요 시간 / 난이도 | 필요한 리소스/도구 | 선행 작업 및 의존성 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| P1 | 치과대학 데이터 67개 확장 | 학교명/도시/주/우편번호/전화/웹사이트 필수 필드 완비 | 2026-01-27 | 2026-02-02 | 3~5일 / 중간 | 수작업 리서치, 데이터 보강 UI, JSON 편집 | 검증 리포트/내보내기 기능 완료 |
-| P1 | 우편번호 기반 거리 계산 개선 | 우편번호 좌표 매핑 정확도 개선 및 예외 처리 강화 | 2026-01-29 | 2026-02-03 | 2일 / 중간 | 좌표 데이터 소스, JavaScript | 없음 |
-| P2 | 협상 대본 A/B 템플릿 추가 | 상황별 문장 변형을 추가해 출력 다양성 확보 | 2026-01-30 | 2026-02-02 | 2일 / 낮음 | JavaScript, 카피라이팅 | 기존 대본 구조 개선 완료 |
-
-## 중기 계획 (1개월 이내)
-
-| 우선순위 | 작업명 | 상세 설명 | 예상 시작일 | 완료 목표일 | 예상 소요 시간 / 난이도 | 필요한 리소스/도구 | 선행 작업 및 의존성 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| P1 | 사용자 피드백 수집 및 분석 | 설문/인터뷰로 50건 이상 피드백 수집 및 인사이트 도출 | 2026-02-03 | 2026-02-24 | 2~3주 / 중간 | 설문 도구, 분석 템플릿 | 데이터 67개 확장, 대본 A/B 템플릿 추가 |
-| P2 | 데이터 품질 재점검 프로세스 정착 | 월 1회 검증 리포트 생성 및 품질 리포팅 운영 | 2026-02-10 | 2026-02-28 | 1~2주 / 낮음 | 검증 리포트, 내보내기 기능 | 검증 리포트/내보내기 기능 완료 |
-
-## 장기 계획 (3개월 이내)
-
-| 우선순위 | 작업명 | 상세 설명 | 예상 시작일 | 완료 목표일 | 예상 소요 시간 / 난이도 | 필요한 리소스/도구 | 선행 작업 및 의존성 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| P1 | 매칭 품질 고도화 | 거리·주요 지역 중심 정렬 개선 및 필터 옵션 확장 | 2026-03-01 | 2026-04-15 | 4~6주 / 높음 | 사용자 요구 분석, JavaScript | 사용자 피드백 수집 및 분석 |
-| P2 | 데이터 범위 확장 | 치과대학 외 커뮤니티 클리닉 정보 확장 검토 | 2026-03-10 | 2026-04-27 | 4~6주 / 중간 | 데이터 수집 파트너, 리서치 | 사용자 피드백 수집 및 분석 |
+> **Date:** 2026-02-07
+> **Status:** MVP complete and deployed at `dental-guide-eta.vercel.app`
+> **Stack:** Next.js 14 / React 18 / TypeScript / Tailwind CSS / Zustand / Vercel
 
 ---
 
-## 프로젝트 점검 결과 (2026-01-27)
+## Overview
 
-### 1. MVP 핵심 기능 구현 현황
-
-| 기능 | 상태 | 비고 |
-| --- | --- | --- |
-| 협상 대본 생성기 | ✅ 완료 | A안/B안 제공, 채널별(방문/전화/문자) 최적화, 톤 조절 가능 |
-| 치과대학 매칭 | ✅ 완료 | 71개 학교 데이터 (목표 67개 초과), 우편번호 기반 거리 계산, 주(State) 필터 |
-| 대안 관리 가이드 | ✅ 완료 | 부분 의치, 임시 치아, 치통 응급 대처 3개 가이드 |
-
-### 2. 추가 구현된 기능
-
-- 비용 예측기 (시술별/지역별)
-- 치과대학 예약 체크리스트 (localStorage 저장)
-- 긴급도 분류 가이드
-- 멤버십 플랜 탐색 템플릿
-- 대체 옵션 비교표
-- 진료비 항목 해석
-- 교통정보 링크 생성
-- 후기 태그 시스템
-- 커뮤니티 이벤트 관리
-- 데이터 검증/보강 도구 (검증 리포트, 백업, 변경 로그)
-- 존엄성 가이드 콘텐츠
-
-### 3. Prompt.md 요구사항 대비 미충족/개선 필요 항목
-
-| 항목 | 현황 | 권고 조치 |
-| --- | --- | --- |
-| 존엄성 관련 콘텐츠 | "존엄성 메시지" 섹션 1개만 존재 | "20대 부분 틀니 관리법" 등 수치심 해결 가이드 추가 필요 |
-| 커뮤니티 기능 | 이벤트 등록만 가능 | Reddit 스타일 경험 공유 기능은 미구현 (장기 과제) |
-| LLM 연동 | 정적 템플릿 기반 | GPT-4 API 연동 시 맞춤 대본 생성 가능 (선택 사항) |
-| 오프라인 대응 | 미구현 | Service Worker 추가 검토 필요 |
-
-### 4. 코드 품질 점검
-
-| 항목 | 상태 | 비고 |
-| --- | --- | --- |
-| 데이터 일관성 | 양호 | 71개 학교 중 연락처 확인됨 표시 |
-| 에러 처리 | 양호 | 우편번호 API 실패 시 예외 처리 |
-| localStorage 활용 | 양호 | 체크리스트, 태그, 오버라이드, 백업 등 저장 |
-| 코드 모듈화 | 개선 여지 | 단일 app.js 파일(1500줄)로 구성, 모듈 분리 권장 |
-
-### 5. 수정 권고사항 (우선순위별)
-
-| 우선순위 | 항목 | 상태 | 진행 내용 |
-| --- | --- | --- | --- |
-| P1 | 존엄성 가이드 콘텐츠 추가 | 완료 | 존엄성 가이드 섹션에 3개 콘텐츠 추가 |
-| P1 | 치과대학 저가 진료 정보 구체화 | 진행 예정 | notes 필드 기반 프로그램 정보 수집 필요 |
-| P2 | 협상 대본 상황별 확장 | 완료 | 첫 방문/재방문/응급/거절 대응 시나리오 반영 |
-| P2 | 모바일 반응형 검증 | 진행 예정 | 실제 디바이스 테스트 체크리스트 필요 |
-| P3 | 코드 구조 리팩토링 | 진행 예정 | 스크립트/데이터/유틸 분리 계획 수립 필요 |
-| P3 | PWA 지원 추가 | 진행 예정 | manifest와 서비스 워커 설계 필요 |
-
-### 6. 개선 작업 진행 결과
-
-- 존엄성 가이드 콘텐츠 확장 (존엄성 메시지 강화)
-- 협상 대본에 상황 선택 추가 및 시나리오 문구 반영
-- 대본 시나리오 테스트 케이스 작성
-- 모바일 터치 타깃 및 포커스 스타일 기본 개선 적용
-- 모바일 레이아웃 E2E 검증 시나리오 추가
-- 접근성 점검 이슈 수정 (main landmark, select 레이블)
-
-### 7. 테스트 케이스 및 검증 결과
-
-| 테스트 항목 | 방법 | 결과 |
-| --- | --- | --- |
-| 대본 시나리오 문구 포함 여부 | node script-tests.js 실행 | 통과 |
-| 브라우저 E2E 시나리오 | npm run test:e2e 실행 | 통과 |
-| 모바일 레이아웃 기본 검증 | npm run test:e2e 실행 | 통과 |
-| Lighthouse 접근성 점검 | npx lighthouse 실행 | 100점 |
+The MVP is feature-complete with 4 core tools (Script Builder, School Finder, Cost Estimator, Emergency Triage), plus blog, feedback, and SEO infrastructure. This plan addresses the gaps discovered during the post-MVP audit — prioritized by user impact and legal risk.
 
 ---
 
-## 추천 개선 작업 (2026-01-27 점검 기준)
+## Phase 1 — Critical (Must-Do Before Promotion)
 
-### 즉시 적용 가능 (빠른 개선)
-
-| 우선순위 | 작업명 | 상세 설명 | 난이도 | 구현 힌트 |
-| --- | --- | --- | --- | --- |
-| P1 | 대본 복사 버튼 | 생성된 A안/B안을 클립보드에 복사 | 낮음 | `navigator.clipboard.writeText()` 사용, script-card에 버튼 추가 |
-| P2 | 대본 즐겨찾기 | 자주 쓰는 옵션 조합을 localStorage에 저장/불러오기 | 낮음 | 현재 선택값을 객체로 저장, 드롭다운으로 불러오기 |
-| P2 | 브라우저 E2E 테스트 | Playwright/Puppeteer로 UI 동작 자동 검증 | 중간 | `npx playwright init` 후 시나리오별 테스트 작성 |
-
-### 단기 개선 (1~2주)
-
-| 우선순위 | 작업명 | 상세 설명 | 난이도 | 구현 힌트 |
-| --- | --- | --- | --- | --- |
-| P1 | 치과대학 프로그램 정보 수집 | 학교별 저가 진료 프로그램 유형, 예상 비용 범위를 notes에 추가 | 중간 | 수작업 리서치 + JSON 편집, 데이터 보강 UI 활용 |
-| P2 | 모바일 UI 검증 | 터치 영역 크기(최소 44px), 폼 입력 편의성 테스트 | 낮음 | Chrome DevTools 모바일 뷰 + 실제 기기 테스트 |
-| P2 | 접근성(a11y) 점검 | aria-label, 키보드 네비게이션, 색상 대비 확인 | 중간 | Lighthouse 접근성 점수 확인, axe DevTools 사용 |
-
-### 중기 개선 (1개월)
-
-| 우선순위 | 작업명 | 상세 설명 | 난이도 | 구현 힌트 |
-| --- | --- | --- | --- | --- |
-| P1 | 대본 다국어 지원 | 영어/스페인어 버전 추가 (히스패닉 커뮤니티 타겟) | 중간 | i18n 객체로 문구 분리, 언어 선택 드롭다운 추가 |
-| P2 | PDF 내보내기 | 대본 + 체크리스트를 PDF로 저장 | 중간 | jsPDF 또는 html2pdf.js 라이브러리 사용 |
-| P3 | 사용 통계 대시보드 | 어떤 시나리오/시술이 많이 사용되는지 분석 | 높음 | localStorage에 사용 로그 저장, 차트 라이브러리(Chart.js) 연동 |
-
-### 장기 개선 (3개월)
-
-| 우선순위 | 작업명 | 상세 설명 | 난이도 | 구현 힌트 |
-| --- | --- | --- | --- | --- |
-| P2 | PWA 오프라인 지원 | Service Worker로 기본 정보 캐싱 | 중간 | manifest.json + sw.js 작성, Workbox 활용 권장 |
-| P3 | LLM 연동 맞춤 대본 | GPT-4 API로 사용자 상황에 맞는 대본 동적 생성 | 높음 | 백엔드 프록시 필요 (API 키 보호), 스트리밍 응답 처리 |
-| P3 | 커뮤니티 경험 공유 | Reddit 스타일 팁 공유 기능 | 높음 | 백엔드 + DB 필요, Firebase Firestore 또는 Supabase 검토 |
+These items address **legal risk** and **data trust** issues. Do not promote the product further until these are resolved.
 
 ---
 
-## 추천 개선 작업 실행 계획 및 진행 추적
+### 1.1 Add Prominent Medical & Legal Disclaimers to Tool Pages
 
-### 즉시 적용 작업 (우선순위 상)
+**Why:** The emergency triage page provides specific medical dosages (e.g., "Ibuprofen 400-600mg every 6-8 hours") and ER referral criteria without a visible disclaimer on the page itself. The cost estimator shows price ranges without accuracy caveats. Currently disclaimers only exist in the footer and Terms of Service — most users will never read those.
 
-| 작업명 | 담당 역할 | 예상 소요 시간 | 성공 지표 |
-| --- | --- | --- | --- |
-| 대본 복사 버튼 | 프론트엔드 | 0.5일 | A/B 대본 1클릭 복사 성공률 99% 이상 |
-| 대본 즐겨찾기 | 프론트엔드 | 1일 | 저장/불러오기 성공률 99% 이상 |
-| 브라우저 E2E 테스트 | QA/프론트엔드 | 1~2일 | 핵심 플로우 3개 시나리오 자동 통과 |
+**Files to modify:**
+- `app/emergency-triage/page.tsx`
+- `app/cost-estimator/page.tsx`
+- `app/script-builder/page.tsx`
+- `app/school-finder/page.tsx`
 
-**실행 단계**
-- UI 컴포넌트 추가 및 동작 연결
-- 로컬 저장소 연동과 예외 흐름 정리
-- 기본 시나리오 테스트 실행 및 실패 케이스 기록
+**Implementation:**
 
-### 단기 작업 (1~2주)
+1. Create a reusable `DisclaimerBanner` component at `components/ui/disclaimer-banner.tsx`:
+   - Yellow/amber background with `AlertTriangle` icon from lucide-react
+   - Compact single-line by default, expandable on click for full text
+   - Accepts `variant` prop: `"medical"` | `"informational"`
+   - Medical variant text: **"This tool is for informational purposes only and does not replace professional dental or medical advice. If you are experiencing a medical emergency, call 911 immediately."**
+   - Informational variant text: **"Costs and availability shown are estimates based on publicly available data. Always contact providers directly to verify current pricing and services."**
 
-| 작업명 | 담당 역할 | 예상 소요 시간 | 성공 지표 |
-| --- | --- | --- | --- |
-| 치과대학 프로그램 정보 수집 | 데이터 리서치 | 1~2주 | 67개 학교 중 80% 이상 프로그램 정보 확보 |
-| 모바일 UI 검증 | QA | 3~5일 | 주요 화면 터치 오류 0건, 이탈률 개선 |
-| 접근성 점검 | 프론트엔드/QA | 1주 | Lighthouse 접근성 90점 이상 |
+2. Place the `DisclaimerBanner` at the **top** of each tool page, immediately below the page heading:
+   - `emergency-triage/page.tsx` — use `variant="medical"`
+   - `cost-estimator/page.tsx` — use `variant="informational"`
+   - `script-builder/page.tsx` — use `variant="informational"`
+   - `school-finder/page.tsx` — use `variant="informational"`
 
-**실행 단계**
-- 정보 수집 템플릿 정의 및 데이터 보강
-- 모바일 테스트 체크리스트 적용 및 결과 리포트
-- 접근성 개선 항목 리스트업 및 수정
+3. In `app/emergency-triage/page.tsx`, add a secondary red-colored banner above any symptom that has `level: "emergency"` (red level) that says: **"If symptoms are severe or worsening rapidly, go to the nearest emergency room or call 911."**
 
-**치과대학 프로그램 정보 수집 템플릿**
-- 학교명
-- 프로그램 유형 (학생/레지던트/교수/응급/전문의)
-- 비용 정보 (예: 일반 치과 대비 비율, 예시 비용 범위)
-- 보험/메디케이드 수용 여부
-- 예약/스크리닝 방식 (전화/온라인, 첫 방문 절차)
-- 접근성/특이사항 (특수환자, 언어 지원, 워크인)
-- 출처 URL
-- 마지막 업데이트 날짜
-
-**모바일 UI 검증 체크리스트**
-- 터치 타깃 최소 44px 충족 여부
-- 버튼/셀렉트 겹침 및 줄바꿈 확인
-- 가로 스크롤 발생 여부
-- 입력 포커스 시 확대/스크롤 안정성
-- 긴 텍스트(스크립트 출력) 가독성
-
-**접근성 점검 체크리스트**
-- 키보드 탭 이동 순서 정상 여부
-- 포커스 링 시각적 대비 확보
-- 폼 라벨과 입력의 연결 관계 확인
-- 색 대비 최소 기준 충족 여부
-- 버튼/링크 명확한 텍스트 제공
-
-### 중기 작업 (1개월)
-
-| 작업명 | 담당 역할 | 예상 소요 시간 | 성공 지표 |
-| --- | --- | --- | --- |
-| 대본 다국어 지원 | 프론트엔드/콘텐츠 | 2~3주 | 다국어 전환 오류 0건 |
-| PDF 내보내기 | 프론트엔드 | 2주 | PDF 생성 성공률 98% 이상 |
-| 사용 통계 대시보드 | 프론트엔드/데이터 | 3~4주 | 핵심 지표 5개 이상 시각화 |
-
-**실행 단계**
-- 언어 리소스 구조 설계 및 문구 분리
-- 내보내기 흐름 설계 및 출력 검증
-- 사용 로그 설계와 기본 대시보드 구축
-
-### 진행 추적 보드
-
-| 범주 | 작업명 | 상태 | 담당 역할 | 마지막 업데이트 | 다음 액션 |
-| --- | --- | --- | --- | --- | --- |
-| 즉시 | 대본 복사 버튼 | 완료 | 프론트엔드 | 2026-01-27 | 유지보수 이슈 모니터링 |
-| 즉시 | 대본 즐겨찾기 | 완료 | 프론트엔드 | 2026-01-27 | 저장 한도 검토 |
-| 즉시 | 브라우저 E2E 테스트 | 완료 | QA/프론트엔드 | 2026-01-27 | 시나리오 유지보수 |
-| 단기 | 치과대학 프로그램 정보 수집 | 대기 | 데이터 리서치 | 2026-01-27 | 수집 템플릿 확정 |
-| 단기 | 모바일 UI 검증 | 완료 | QA | 2026-01-27 | 디바이스 테스트 체크리스트 유지 |
-| 단기 | 접근성 점검 | 완료 | 프론트엔드/QA | 2026-01-27 | Lighthouse 점검 유지 |
-| 중기 | 대본 다국어 지원 | 완료 | 프론트엔드/콘텐츠 | 2026-01-27 | ko/en/es 문구 유지보수 |
-| 중기 | PDF 내보내기 | 부분 구현 | 프론트엔드 | 2026-01-27 | 체크리스트 포함·출력 스타일 개선 |
-| 중기 | 사용 통계 대시보드 | 1차 구현 | 프론트엔드/데이터 | 2026-01-27 | 차트 연동 및 지표 확장 |
+**Acceptance criteria:**
+- Every tool page shows a disclaimer banner without scrolling
+- Emergency triage page has an additional ER warning for red-level symptoms
+- Banners are visible on mobile without taking excessive space (max 2 lines collapsed)
 
 ---
 
-## 오늘 작업 요약 (2026-01-27)
+### 1.2 Add Data Source Citations
 
-- 대본 다국어 지원: 한국어/영어/스페인어 선택으로 A/B 대본 생성, 생성 시 사용 통계 기록
-- PDF 내보내기: 대본과 체크리스트를 함께 인쇄/저장 (브라우저 인쇄 기반 1차 구현)
-- 사용 통계 대시보드: 요약 지표와 상위 항목(시술/시나리오/채널/언어 등) 표시, 초기화 기능 추가
-- 치과대학 매칭 개선: 우편번호 정규화(숫자만 5자리), 로컬 캐시/TTL 도입, 검색 통계 기록
-- 데이터 보강 통계: JSON 가져오기/저장/삭제/검증 완료 이벤트 카운트 기록
-- 체크리스트/비용 예측 통계: 항목별 토글 및 시술/지역별 예측 카운트 기록
-- 단위 테스트: script-tests.js 실행 통과(브라우저 의존 로직 가드 추가)
+**Why:** Cost estimates and medical guidance currently have no source attribution. Users (and potential press/partners) have no way to verify the accuracy of the data. This undermines trust.
 
-### 다음 액션
-- 통계 대시보드 시각화(차트 라이브러리 연동) 및 지표 확장
-- PDF 내보내기 출력 품질 개선(레이아웃/헤더/페이지 나눔)
-- 치과대학 프로그램 정보 수집 및 notes 필드 구체화
+**Files to modify:**
+- `lib/data/costs.ts`
+- `lib/data/urgency.ts`
+- `app/cost-estimator/page.tsx`
+- `app/emergency-triage/page.tsx`
+
+**Implementation:**
+
+1. Add a `sources` array to `lib/data/costs.ts`:
+   ```typescript
+   export const costSources = [
+     {
+       name: "American Dental Association — Survey of Dental Fees",
+       url: "https://www.ada.org/resources/practice/dental-fees",
+       year: 2024,
+     },
+     {
+       name: "FAIR Health Consumer Cost Lookup",
+       url: "https://www.fairhealthconsumer.org",
+       year: 2025,
+     },
+     {
+       name: "Healthcare Bluebook — Fair Price Estimates",
+       url: "https://www.healthcarebluebook.com",
+       year: 2025,
+     },
+   ];
+   ```
+   **Important:** Only include sources that were actually used to derive the cost data. If the data was estimated without formal sources, be honest and state: "Estimates are based on publicly available pricing data and community reports. These are approximate ranges, not guaranteed prices."
+
+2. Add a `sources` array to `lib/data/urgency.ts`:
+   ```typescript
+   export const urgencySources = [
+     {
+       name: "American Dental Association — Dental Emergency Guide",
+       url: "https://www.ada.org/resources/research/science-and-research-institute/oral-health-topics/dental-emergencies",
+     },
+     {
+       name: "MedlinePlus — Dental Emergencies",
+       url: "https://medlineplus.gov/ency/article/000040.htm",
+     },
+   ];
+   ```
+
+3. Display sources at the bottom of each tool page in a collapsible `<details>` section titled "Data Sources & Methodology":
+   - List each source as a clickable link with `target="_blank"` and `rel="noopener noreferrer"`
+   - Include a "Last reviewed" date
+   - Include the methodology note (e.g., "Regional multipliers are based on cost-of-living adjustments from BLS data")
+
+**Acceptance criteria:**
+- Cost estimator page shows data sources at the bottom
+- Emergency triage page shows data sources at the bottom
+- Sources are real, verifiable URLs (do not fabricate sources)
+- Each source section includes a "Last reviewed" date
+
+---
+
+### 1.3 Create `.env.example` File
+
+**Why:** The project uses nodemailer for email (report-issue API) but has no documented environment variables. Any developer or agent trying to run or deploy the project won't know what to configure.
+
+**File to create:** `.env.example` (project root)
+
+**Implementation:**
+
+1. Read the existing `app/api/report-issue/route.ts` to identify all environment variables used
+2. Create `.env.example` with all required variables, using placeholder values:
+   ```env
+   # Email Configuration (used by /api/report-issue)
+   SMTP_HOST=smtp.gmail.com
+   SMTP_PORT=587
+   SMTP_USER=your-email@gmail.com
+   SMTP_PASS=your-app-password
+   REPORT_EMAIL_TO=admin@example.com
+
+   # Site Configuration
+   NEXT_PUBLIC_SITE_URL=http://localhost:3000
+   ```
+3. Verify `.env.local` and `.env` are in `.gitignore`
+
+**Acceptance criteria:**
+- `.env.example` exists with all required variables documented
+- Each variable has a comment explaining its purpose
+- Sensitive files are confirmed in `.gitignore`
+
+---
+
+## Phase 2 — High Priority (Analytics & Feedback Loop)
+
+These items enable the team to **measure whether the product is working** — without this, you're flying blind.
+
+---
+
+### 2.1 Integrate Real Analytics (Google Analytics 4 or Plausible)
+
+**Why:** Current analytics are localStorage-only. You cannot see how many users visit the site, which tools they use, where they drop off, or where they come from. This makes it impossible to validate the MVP or make data-driven decisions.
+
+**Recommended approach:** Use [Plausible Analytics](https://plausible.io) (privacy-friendly, no cookie banner needed, aligns with the project's privacy-first stance) OR Google Analytics 4 if the team prefers a free option.
+
+**Files to modify:**
+- `app/layout.tsx` — add analytics script
+- `lib/utils/analytics.ts` — extend with external tracking
+- `app/privacy/page.tsx` — update privacy policy
+
+**Implementation (Plausible option):**
+
+1. Add the Plausible script to `app/layout.tsx` inside `<head>`:
+   ```html
+   <script defer data-domain="dental-guide-eta.vercel.app" src="https://plausible.io/js/script.js"></script>
+   ```
+   Use `next/script` component with `strategy="afterInteractive"` for proper Next.js integration.
+
+2. Add a `NEXT_PUBLIC_ANALYTICS_DOMAIN` env var to `.env.example` so the domain is configurable.
+
+3. Create a wrapper in `lib/utils/analytics.ts` that sends custom events to Plausible alongside the existing localStorage tracking:
+   ```typescript
+   export function trackEvent(type: string, metadata?: Record<string, unknown>) {
+     // Existing localStorage tracking (keep as-is)
+     saveEventToLocalStorage(type, metadata);
+
+     // External analytics (Plausible custom events)
+     if (typeof window !== 'undefined' && (window as any).plausible) {
+       (window as any).plausible(type, { props: metadata });
+     }
+   }
+   ```
+
+4. Track these key events (most should already be tracked locally — just ensure they propagate):
+   - `script_generated` — with procedure, language, channel
+   - `school_search` — with state, zip (first 3 digits only for privacy)
+   - `cost_estimate` — with procedure, region
+   - `emergency_triage_viewed` — with symptom type
+   - `copy_script` — when user copies a generated script
+   - `school_website_click` — when user clicks through to a school's website
+
+5. Update `app/privacy/page.tsx` to mention the external analytics tool:
+   - If Plausible: "We use Plausible Analytics, a privacy-friendly analytics tool that does not use cookies and does not collect personal data."
+   - If GA4: Add appropriate cookie consent banner and update privacy policy accordingly.
+
+**Implementation (GA4 option):**
+
+1. Install `@next/third-parties`:
+   ```bash
+   npm install @next/third-parties
+   ```
+
+2. Add to `app/layout.tsx`:
+   ```typescript
+   import { GoogleAnalytics } from '@next/third-parties/google';
+   // In the component: <GoogleAnalytics gaId="G-XXXXXXXXXX" />
+   ```
+
+3. Add `NEXT_PUBLIC_GA_ID` to `.env.example`.
+
+4. Use `gtag('event', ...)` in the analytics wrapper for custom events.
+
+5. A cookie consent banner will be needed — create `components/ui/cookie-consent.tsx` using localStorage to remember the user's choice.
+
+**Acceptance criteria:**
+- Page views are tracked on an external dashboard
+- Custom events (script generation, school search, cost estimate, triage view) appear in the analytics dashboard
+- Privacy policy is updated to reflect the analytics tool used
+- No personally identifiable information (PII) is sent to analytics
+
+---
+
+### 2.2 Add User Feedback Collection Points
+
+**Why:** A `/feedback` page exists but requires users to actively navigate there. Most users won't do that. In-context feedback (after using a tool) captures reactions when they're most relevant.
+
+**Files to modify:**
+- `app/script-builder/page.tsx`
+- `app/school-finder/page.tsx`
+- `app/cost-estimator/page.tsx`
+- `app/emergency-triage/page.tsx`
+
+**File to create:**
+- `components/ui/feedback-prompt.tsx`
+
+**Implementation:**
+
+1. Create `components/ui/feedback-prompt.tsx`:
+   - Shows after a user completes a tool action (generates a script, searches for a school, views a cost estimate, or views triage guidance)
+   - Simple thumbs up/down or 1-5 star rating
+   - Optional one-line text input ("How can we improve this?")
+   - Dismissable, remembers dismissal in localStorage (don't show again for 7 days)
+   - Submits to localStorage analytics AND external analytics as a custom event
+   - Props: `toolName: string`, `onSubmit: (rating: number, comment?: string) => void`
+
+2. Integrate into each tool page:
+   - **Script Builder:** Show after script is generated (below the script output)
+   - **School Finder:** Show after search results are displayed
+   - **Cost Estimator:** Show after cost breakdown is displayed
+   - **Emergency Triage:** Show after guidance is displayed (be sensitive — don't prompt during emergencies; only show for green/yellow level symptoms)
+
+3. Track feedback events:
+   ```typescript
+   trackEvent('feedback_submitted', {
+     tool: 'script_builder',
+     rating: 4,
+     hasComment: true,
+   });
+   ```
+
+**Acceptance criteria:**
+- Feedback prompt appears after tool usage on all 4 tool pages
+- Feedback is persisted in localStorage and sent to external analytics
+- Prompt does not appear for red-level emergency triage results
+- Prompt can be dismissed and respects the 7-day cooldown
+- Prompt does not interfere with the primary tool UI
+
+---
+
+## Phase 3 — Medium Priority (Data Quality & Freshness)
+
+These items address the static data problem — ensuring the information stays accurate over time.
+
+---
+
+### 3.1 Add Data Freshness Indicators to School Finder
+
+**Why:** School data (phone numbers, websites, program availability) changes. The `verificationStatus` and `lastVerified` fields exist in the data model but are not meaningfully surfaced to users. Users deserve to know how fresh the data is.
+
+**Files to modify:**
+- `components/features/school-finder/SchoolList.tsx` (or equivalent component displaying school cards)
+- `lib/data/schools.ts`
+- `lib/data/community-clinics.ts`
+
+**Implementation:**
+
+1. Display `lastVerified` date on each school card as a subtle text line:
+   - If verified within 90 days: green text — "Verified [date]"
+   - If verified 90-180 days ago: yellow text — "Last checked [date]"
+   - If older than 180 days or never verified: gray text — "Not recently verified — please confirm details with the school"
+
+2. Add a subtle info tooltip or text near the top of search results:
+   - "School information is periodically verified. Always call ahead to confirm availability, pricing, and appointment requirements."
+
+3. Sort results to prefer recently verified schools (as a secondary sort after distance):
+   - If two schools are equidistant, show the more recently verified one first
+
+4. Update the `Report Issue` dialog to include a "Data is outdated" option in the issue type dropdown if not already present.
+
+**Acceptance criteria:**
+- Every school card shows its verification freshness
+- Color coding is consistent and accessible (not relying on color alone — include text labels)
+- Recently verified schools rank slightly higher in results
+
+---
+
+### 3.2 Add Cost Estimate Accuracy Context
+
+**Why:** The cost estimator shows a min-max range but doesn't explain what drives the variation or how accurate the estimates are. Users may misinterpret a range like "$300–$1,500" without context.
+
+**Files to modify:**
+- `app/cost-estimator/page.tsx`
+- `lib/data/costs.ts`
+
+**Implementation:**
+
+1. Below each cost estimate result, add contextual notes:
+   - "Actual costs vary based on the complexity of your case, the provider's pricing, and your location."
+   - "Dental school clinics typically charge 40–70% less than private practices for the same procedures."
+   - For specific procedures, add relevant notes (e.g., for root canal: "Front teeth are typically less expensive than molars.")
+
+2. Add a "What affects the price?" expandable section with factors:
+   - Geographic location (already shown via regional multiplier)
+   - Complexity of the case
+   - Provider type (private practice vs. dental school vs. community clinic)
+   - Whether sedation is needed
+   - Number of visits required
+
+3. Show the regional multiplier transparently:
+   - e.g., "Northeast region: prices are typically ~25% higher than the national average"
+
+**Acceptance criteria:**
+- Each cost estimate includes contextual explanation
+- Regional multiplier is shown transparently
+- Users understand that these are estimates, not quotes
+
+---
+
+### 3.3 Implement Automated Data Staleness Alerts
+
+**Why:** Without a process to flag stale data, school information will silently decay. This creates a system that surfaces when data needs attention.
+
+**Files to create:**
+- `scripts/check-data-freshness.ts`
+
+**Files to modify:**
+- `package.json` (add script)
+
+**Implementation:**
+
+1. Create `scripts/check-data-freshness.ts` — a Node.js script that:
+   - Reads all entries from `lib/data/schools.ts` and `lib/data/community-clinics.ts`
+   - Flags any entry where `lastVerified` is older than 180 days
+   - Flags any entry with `verificationStatus: "unverified"`
+   - Outputs a markdown report to stdout with:
+     - Total entries, verified count, stale count, unverified count
+     - List of stale/unverified entries with school name, state, and last verified date
+   - Exits with code 1 if more than 20% of entries are stale (can be used in CI)
+
+2. Add to `package.json`:
+   ```json
+   "scripts": {
+     "check:data": "npx tsx scripts/check-data-freshness.ts"
+   }
+   ```
+
+3. The script should be runnable independently (no Next.js dependency) — just reads the TypeScript data files and reports.
+
+**Acceptance criteria:**
+- `npm run check:data` produces a readable staleness report
+- Script exits with non-zero code when data is significantly stale
+- Report includes actionable information (which schools, how stale)
+
+---
+
+## Phase 4 — Low Priority (Polish & Growth)
+
+These items improve the user experience and prepare for growth, but are not urgent.
+
+---
+
+### 4.1 Remove or Consolidate Non-Essential Pages
+
+**Why:** Press page, blog (with limited content), and analytics dashboard add surface area without proportional value at this stage. They dilute focus from the 4 core tools.
+
+**Recommended actions:**
+
+1. **Press page (`app/press/`):** Keep but simplify. Remove from main navigation. Accessible via footer link only. It's useful if someone finds the product, but doesn't need navigation prominence.
+
+2. **Analytics dashboard (`/analytics`):** This is an internal tool. Remove from footer links visible to users. If needed, access it directly via URL.
+
+3. **Blog:** Keep but deprioritize. Ensure existing posts are accurate. Do not invest in new content until core tools are validated with real users.
+
+**Files to modify:**
+- `components/layout/Header.tsx` — remove Press from main nav (keep Blog if desired for SEO)
+- `components/layout/Footer.tsx` — remove Analytics link, move Press to footer
+
+**Acceptance criteria:**
+- Main navigation has at most 6 items (4 tools + About + Blog)
+- Press is accessible via footer only
+- Analytics dashboard is not linked from any public UI element
+
+---
+
+### 4.2 Improve Mobile Bottom Navigation
+
+**Why:** The bottom navigation currently shows 8 items which is too many for mobile. Best practice is 4-5 items max in a mobile bottom nav.
+
+**Files to modify:**
+- `components/layout/Header.tsx`
+
+**Implementation:**
+
+1. Reduce mobile bottom nav to 5 items:
+   - Script Builder (FileText)
+   - Schools (GraduationCap)
+   - Costs (DollarSign)
+   - Emergency (AlertTriangle)
+   - More (Menu icon) — opens a slide-up sheet with remaining links
+
+2. The "More" menu should contain:
+   - Blog
+   - About
+   - Feedback
+   - Press (if kept)
+
+3. Use Radix UI Dialog or a simple slide-up animation (framer-motion) for the "More" menu.
+
+**Acceptance criteria:**
+- Mobile bottom nav shows exactly 5 items
+- "More" menu provides access to all other pages
+- Touch targets remain at least 44x44px
+- Active page indicator works correctly
+
+---
+
+### 4.3 Add Print-Friendly Styles for Scripts and Checklists
+
+**Why:** Users in the target demographic (uninsured, low-income) may want to print scripts or checklists to bring to their dental appointments. Currently, printing these pages produces poor results.
+
+**Files to modify:**
+- `app/globals.css` (or equivalent global stylesheet)
+- `app/script-builder/page.tsx`
+
+**Implementation:**
+
+1. Add `@media print` styles to the global CSS:
+   ```css
+   @media print {
+     /* Hide navigation, footer, feedback prompts, and disclaimers */
+     header, footer, .feedback-prompt, .no-print { display: none !important; }
+
+     /* Ensure script output is full-width */
+     .script-output { width: 100%; max-width: none; }
+
+     /* Ensure readable font sizes */
+     body { font-size: 12pt; color: black; background: white; }
+
+     /* Avoid page breaks inside script cards */
+     .script-card { break-inside: avoid; }
+   }
+   ```
+
+2. Add a "Print" button next to the existing "Copy" button on the Script Builder output:
+   - Uses `window.print()` on click
+   - Icon: `Printer` from lucide-react
+
+**Acceptance criteria:**
+- Printing the script builder page produces a clean, readable printout
+- Navigation and non-essential UI elements are hidden when printing
+- Script text is not cut off by page breaks
+
+---
+
+### 4.4 Add Structured Error Handling for External API Calls
+
+**Why:** The geolocation module (`lib/utils/geolocation.ts`) calls external APIs (zippopotam.us, nominatim.openstreetmap.org) but error handling could be more user-friendly. When these APIs fail, users should see a helpful message rather than a silent failure.
+
+**Files to modify:**
+- `lib/utils/geolocation.ts`
+- `components/features/school-finder/SchoolSearchForm.tsx` (or equivalent)
+
+**Implementation:**
+
+1. In `geolocation.ts`, ensure all fetch calls have:
+   - A timeout (5 seconds max)
+   - Graceful fallback when API is unreachable (use state-level approximate coordinates as fallback)
+   - Clear error types: `"network_error"` | `"invalid_zip"` | `"api_unavailable"`
+
+2. In the School Finder UI, show user-friendly messages:
+   - Network error: "Could not determine your location. Try searching by state instead."
+   - Invalid ZIP: "Please enter a valid 5-digit US ZIP code."
+   - API unavailable: "Location service is temporarily unavailable. Showing results filtered by state."
+
+3. When the ZIP API fails, automatically fall back to state-based filtering if the user has selected a state.
+
+**Acceptance criteria:**
+- School Finder never shows a blank/broken state when APIs fail
+- User sees actionable error messages
+- State-based fallback works when ZIP geolocation fails
+
+---
+
+## Phase 5 — Future Considerations (Do Not Implement Now)
+
+These are noted for future planning but should **not** be started until Phases 1-3 are complete and analytics data confirms user engagement.
+
+| Item | Notes |
+|------|-------|
+| **LLM-powered script generation** | Replace template-based scripts with GPT-4/Claude API for more natural, personalized output. Requires backend proxy for API key protection. Only pursue if script builder sees significant usage. |
+| **PWA / Offline support** | Service worker for offline access. Useful for users with unreliable internet. Requires careful cache invalidation strategy for data updates. |
+| **Community features** | User-submitted tips, experiences, reviews. Requires authentication, moderation, and database (Supabase/Firebase). Only pursue if there's clear demand. |
+| **Dental insurance marketplace comparison** | Compare insurance plans, discount dental plans, and Medicaid eligibility. Requires significant data sourcing and maintenance. |
+| **Provider reviews / ratings** | User-submitted reviews of dental schools and clinics. Requires moderation infrastructure. |
+
+---
+
+## Implementation Order Summary
+
+```
+Phase 1 (Critical — do first):
+  1.1  Disclaimer banners on tool pages
+  1.2  Data source citations
+  1.3  .env.example file
+
+Phase 2 (High — do immediately after Phase 1):
+  2.1  External analytics integration
+  2.2  In-context feedback collection
+
+Phase 3 (Medium — do within 2 weeks):
+  3.1  Data freshness indicators
+  3.2  Cost estimate accuracy context
+  3.3  Automated data staleness script
+
+Phase 4 (Low — do when time permits):
+  4.1  Navigation consolidation
+  4.2  Mobile bottom nav improvement
+  4.3  Print-friendly styles
+  4.4  Geolocation error handling
+```
+
+---
+
+## File Reference Map
+
+Quick reference for agents implementing these tasks:
+
+| Area | Key Files |
+|------|-----------|
+| Layout & Nav | `app/layout.tsx`, `components/layout/Header.tsx`, `components/layout/Footer.tsx` |
+| Script Builder | `app/script-builder/page.tsx`, `components/features/script-builder/`, `lib/stores/script-store.ts`, `lib/utils/scripts.ts` |
+| School Finder | `app/school-finder/page.tsx`, `components/features/school-finder/`, `lib/stores/school-store.ts`, `lib/data/schools.ts`, `lib/data/community-clinics.ts` |
+| Cost Estimator | `app/cost-estimator/page.tsx`, `lib/data/costs.ts` |
+| Emergency Triage | `app/emergency-triage/page.tsx`, `lib/data/urgency.ts` |
+| Analytics | `lib/utils/analytics.ts`, `lib/stores/stats-store.ts` |
+| Geolocation | `lib/utils/geolocation.ts` |
+| API Routes | `app/api/report-issue/route.ts` |
+| UI Components | `components/ui/` |
+| Styles | `app/globals.css`, `tailwind.config.ts` |
+| Tests (E2E) | `tests/e2e/*.spec.js`, `playwright.config.ts` |
+| Tests (Unit) | `tests/unit/*.test.ts`, `vitest.config.ts` |
+| Config | `next.config.js`, `package.json`, `tsconfig.json` |
+| Legal | `app/privacy/page.tsx`, `app/terms/page.tsx` |

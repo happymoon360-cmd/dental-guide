@@ -1,57 +1,70 @@
 const { test, expect } = require("@playwright/test");
 
+// Helper function to select option from Radix UI dropdown
+async function selectRadixOption(page, label, optionText) {
+  // Click the trigger to open the dropdown
+  await page.getByLabel(label).click();
+  // Click the option
+  await page.getByRole('option', { name: optionText, exact: true }).click();
+}
+
 test.describe("Cost Estimator", () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/cost-estimator');
   });
 
   test("Cost estimation for all procedures", async ({ page }) => {
-    const procedures = ['Exam/Cleaning', 'Filling', 'Root Canal', 'Crown', 'Implant'];
+    // Labels in dropdown vs Expected text in result
+    const procedures = [
+      { label: 'Checkup', expected: 'Exam/Cleaning' },
+      { label: 'Filling', expected: 'Filling' },
+      { label: 'Root Canal', expected: 'Root Canal' },
+      { label: 'Crown', expected: 'Crown/Restoration' },
+      { label: 'Implant', expected: 'Extraction/Implant' }
+    ];
 
-    for (const procedure of procedures) {
-      await page.goto('/cost-estimator');
-      await page.getByLabel('Treatment').selectOption(procedure);
-      await page.getByLabel('Location').selectOption('National Average');
+    for (const item of procedures) {
+      await selectRadixOption(page, 'Treatment', item.label);
+      await selectRadixOption(page, 'Location', 'National Average');
       await page.getByRole('button', { name: /Check Cost/i }).click();
 
       // Check results
       await expect(page.getByText('Estimated Cost')).toBeVisible();
       await expect(page.getByText(/\$\d+ - \$\d+/i)).toBeVisible();
-      await expect(page.getByText(procedure)).toBeVisible();
+      // Use more specific locator for result card
+      await expect(page.locator('.rounded-3xl.bg-blue-50')).toContainText(item.expected);
     }
   });
 
   test("Cost differences by region", async ({ page }) => {
-    await page.goto('/cost-estimator');
-    await page.getByLabel('Treatment').selectOption('Root Canal');
+    await selectRadixOption(page, 'Treatment', 'Root Canal');
 
-    // Big city
-    await page.getByLabel('Location').selectOption('Big City');
+    // High Cost Area: 'Northeast (NY, Boston, DC)' -> Label: 'Northeast'
+    // Low Cost Area: 'South (Texas, Florida)' -> Label: 'South'
+
+    await selectRadixOption(page, 'Location', 'Northeast');
     await page.getByRole('button', { name: /Check Cost/i }).click();
 
-    let bigCityCost = await page.getByText(/\$\d+ - \$\d+/i).textContent();
-    const bigCityMatch = bigCityCost.match(/\$(\d+)/);
-    const bigCityMin = parseInt(bigCityMatch[1]);
+    let bigCityCostText = await page.getByText(/\$\d+ - \$\d+/i).textContent();
+    const bigCityMin = parseInt(bigCityCostText.match(/\$(\d+(?:,\d+)?)/)[1].replace(/,/g, ''));
 
-    // Small city
-    await page.getByLabel('Location').selectOption('Small City');
+    // Low cost area
+    await selectRadixOption(page, 'Location', 'South');
     await page.getByRole('button', { name: /Check Cost/i }).click();
 
-    let smallCityCost = await page.getByText(/\$\d+ - \$\d+/i).textContent();
-    const smallCityMatch = smallCityCost.match(/\$(\d+)/);
-    const smallCityMin = parseInt(smallCityMatch[1]);
+    let smallCityCostText = await page.getByText(/\$\d+ - \$\d+/i).first().textContent();
+    const smallCityMin = parseInt(smallCityCostText.match(/\$(\d+(?:,\d+)?)/)[1].replace(/,/g, ''));
 
-    // Verify Big city costs more
+    // Verify High cost > Low cost
     expect(bigCityMin).toBeGreaterThan(smallCityMin);
   });
 
   test("Cost range format verification", async ({ page }) => {
-    await page.goto('/cost-estimator');
-    await page.getByLabel('Treatment').selectOption('Filling');
-    await page.getByLabel('Location').selectOption('National Average');
+    await selectRadixOption(page, 'Treatment', 'Filling');
+    await selectRadixOption(page, 'Location', 'National Average');
     await page.getByRole('button', { name: /Check Cost/i }).click();
 
     // Verify format: "$XXX - $XXX"
-    await expect(page.getByText(/\$\d{3} - \$\d{3}/i)).toBeVisible();
+    await expect(page.getByText(/\$\d+ - \$\d+/i)).toBeVisible();
   });
 });

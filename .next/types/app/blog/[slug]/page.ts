@@ -1,4 +1,4 @@
-// File: /Users/heoseogjun/Library/CloudStorage/OneDrive-Personal/Project/Dental Guide/app/blog/[slug]/page.tsx
+// File: /Users/jun/Projects/Dental Guide/app/blog/[slug]/page.tsx
 import * as entry from '../../../../../app/blog/[slug]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

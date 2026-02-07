@@ -7,7 +7,6 @@ import {
   Clock,
   ExternalLink,
   Globe,
-  MapPin,
   Phone,
   XCircle,
 } from 'lucide-react';
@@ -28,7 +27,7 @@ function formatDate(dateString?: string): string {
 function getFreshnessLabel(school: School): { text: string; className: string; icon: typeof CheckCircle2 } {
   if (!school.lastVerified) {
     return {
-      text: 'Not recently verified - please confirm details with the school',
+      text: 'Not recently verified - please confirm details with school',
       className: 'text-gray-600',
       icon: Clock,
     };
@@ -56,6 +55,35 @@ function getFreshnessLabel(school: School): { text: string; className: string; i
     className: 'text-gray-600',
     icon: XCircle,
   };
+}
+
+function getVerificationBadge(school: School): string {
+  const status = school.verificationStatus;
+  const lastVerified = school.lastVerified;
+
+  // Calculate days since last verification
+  const daysSinceVerification = lastVerified
+    ? Math.floor((Date.now() - new Date(lastVerified).getTime()) / (1000 * 60 * 60 * 24))
+    : null;
+
+  if (status === 'verified') {
+    if (daysSinceVerification !== null && daysSinceVerification <= 30) {
+      return 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400';
+    }
+    return 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400';
+  }
+
+  if (status === 'unverified') {
+    if (daysSinceVerification !== null) {
+      if (daysSinceVerification <= 180) {
+        return 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400';
+      }
+      return 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400';
+    }
+    return 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400';
+  }
+
+  return 'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400';
 }
 
 export function SchoolList() {
@@ -112,13 +140,16 @@ export function SchoolList() {
                   <CardContent className="pt-6">
                     <div className="space-y-3">
                       <div className="flex items-start justify-between gap-4">
-                        <h3 className="heading-md font-semibold">{school.name}</h3>
-                        {typeof school.distanceMiles === 'number' && (
-                          <div className="flex items-center whitespace-nowrap text-sm text-muted-foreground">
-                            <MapPin className="mr-1 h-4 w-4" />
-                            {school.distanceMiles.toFixed(1)} mi
+                        <div className="flex items-center gap-1 group relative">
+                          <div>
+                            <h3 className="heading-md font-semibold">{school.name}</h3>
+                            {school.verificationStatus && (
+                              <div className={`inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ${getVerificationBadge(school)}`}>
+                                {school.verificationStatus === 'verified' ? 'Verified' : school.verificationStatus}
+                              </div>
+                            )}
                           </div>
-                        )}
+                        </div>
                       </div>
 
                       <div className="body-sm text-muted-foreground">

@@ -11,6 +11,18 @@ export function Footer() {
           >
             Press
           </Link>
+          <Link
+            href="/privacy"
+            className="text-xs text-blue-600 hover:text-blue-800 underline"
+          >
+            Privacy
+          </Link>
+          <Link
+            href="/terms"
+            className="text-xs text-blue-600 hover:text-blue-800 underline"
+          >
+            Terms
+          </Link>
         </div>
         <p className="text-xs text-muted-foreground text-center leading-relaxed">
           This website is for informational purposes only. We do not provide dental services or medical advice.

@@ -34,14 +34,14 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
     keywords: post.tags,
     openGraph: {
       type: 'article',
-      url: `https://dental.guide/blog/${slug}`,
+      url: `https://dental-guide-eta.vercel.app/blog/${slug}`,
       title: post.title,
       description: post.description,
       publishedTime: post.date,
       authors: [post.author],
       images: [
         {
-          url: `https://dental.guide/og-${slug}.png`,
+          url: `https://dental-guide-eta.vercel.app/og-${slug}.png`,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -52,10 +52,10 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: [`https://dental.guide/og-${slug}.png`],
+      images: [`https://dental-guide-eta.vercel.app/og-${slug}.png`],
     },
     alternates: {
-      canonical: `https://dental.guide/blog/${slug}`,
+      canonical: `https://dental-guide-eta.vercel.app/blog/${slug}`,
     },
   };
 }

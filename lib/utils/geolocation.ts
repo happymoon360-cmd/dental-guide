@@ -11,6 +11,7 @@ interface ZipCacheEntry {
   value?: null;
   ts: number;
   source?: 'zippopotamus' | 'openstreetmap' | 'fallback';
+  stateAbbr?: string;
 }
 
 type ZipLocalCache = Record<string, ZipCacheEntry>;
@@ -585,6 +586,93 @@ export async function fetchZipLocationWithDetails(
   };
 }
 
+/**
+ * Fetches US ZIP info (location + state abbreviation) using Zippopotam.us.
+ * Uses the same cache storage used by fetchZipLocation.
+ */
+export async function fetchUsZipInfo(
+  zip: string | number | null | undefined
+): Promise<{ location: SchoolLocation; stateAbbr: string | null } | null> {
+  const normalized = normalizeZip(zip);
+
+  // Validate format
+  if (!normalized || !isValidZipFormat(normalized)) {
+    throw createGeocodingError(
+      'Invalid ZIP code format. Please enter a valid ZIP code.',
+      'INVALID_ZIP',
+      false
+    );
+  }
+
+  if (detectZipCountry(normalized) !== 'US') {
+    return null;
+  }
+
+  // If we have a cached location and state abbreviation, return without network.
+  const cachedLocation = readZipLocalCache(normalized);
+  const cachedEntry = zipLocalCache[normalized];
+  if (cachedLocation && cachedEntry?.stateAbbr) {
+    return { location: cachedLocation, stateAbbr: cachedEntry.stateAbbr };
+  }
+
+  // Rate limit check
+  if (!zipLimiter.canMakeRequest('zip-api')) {
+    const remaining = zipLimiter.getRemainingRequests('zip-api');
+    throw createGeocodingError(
+      `Too many requests. Please wait 60 seconds. Remaining: ${remaining}`,
+      'RATE_LIMIT',
+      true
+    );
+  }
+
+  const response = await fetchWithRetry(`https://api.zippopotam.us/us/${normalized}`);
+
+  if (response.status === 404) {
+    return null;
+  }
+
+  if (!response.ok) {
+    throw createGeocodingError(
+      'Geocoding service temporarily unavailable.',
+      'API_ERROR',
+      true
+    );
+  }
+
+  const data = await response.json();
+  const place = data?.places?.[0];
+  if (!place || typeof place !== 'object') {
+    return null;
+  }
+
+  const lat = sanitizeCoordinate(place.latitude);
+  const lon = sanitizeCoordinate(place.longitude);
+  if (lat === null || lon === null) {
+    return null;
+  }
+
+  if (!isValidCoordinate(lat, lon)) {
+    return null;
+  }
+
+  const stateAbbr = typeof place['state abbreviation'] === 'string' ? place['state abbreviation'] : null;
+  const location: SchoolLocation = { lat, lon };
+
+  // Cache into the same caches used elsewhere
+  zipLocationCache.set(normalized, location);
+  zipLocalCache[normalized] = {
+    lat,
+    lon,
+    ts: Date.now(),
+    source: 'zippopotamus',
+    stateAbbr: stateAbbr || undefined,
+  };
+  saveZipLocalCache();
+  manageCacheSize();
+
+  return { location, stateAbbr };
+}
+
 // ============================================================================
 // Distance Calculations
 // ============================================================================
@@ -652,7 +740,7 @@ export function isSchoolComplete(school: School): boolean {
 
 export function getMissingFields(school: School): string[] {
   const requiredFields: (keyof School)[] = ['name', 'city', 'state', 'zip', 'phone', 'website'];
-  const fieldLabels: Record<keyof School, string> = {
+  const fieldLabels: Record<string, string> = {
     name: 'School Name',
     city: 'City',
     state: 'State',
@@ -661,6 +749,9 @@ export function getMissingFields(school: School): string[] {
     website: 'Website',
     notes: 'Notes',
     hidden: 'Hidden',
+    lastVerified: 'Last Verified',
+    verificationStatus: 'Verification Status',
+    websiteStatus: 'Website Status',
   };
 
   return requiredFields.filter((field) => {

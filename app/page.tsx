@@ -18,12 +18,12 @@ export const metadata: Metadata = {
   keywords: ['affordable dental care', 'free dental clinic', 'dental without insurance', 'negotiate dental bills', 'dental schools near me', 'cheap dentist', 'dental cost help', 'low-income dental'],
   openGraph: {
     type: 'website',
-    url: 'https://dental.guide',
+    url: 'https://dental-guide-eta.vercel.app',
     title: 'Affordable Dental Care Tools - Free Resources for the Uninsured',
     description: 'Free tools to find affordable dental care, negotiate dental bills, locate free clinics and dental schools near you. Save money on dental work without insurance.',
     images: [
       {
-        url: 'https://dental.guide/og-home.png',
+        url: 'https://dental-guide-eta.vercel.app/og-home.png',
         width: 1200,
         height: 630,
         alt: 'Dental Guide - Affordable Dental Care Tools',
@@ -34,10 +34,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Affordable Dental Care Tools - Free Resources for the Uninsured',
     description: 'Free tools to find affordable dental care, negotiate dental bills, locate free clinics and dental schools near you. Save money on dental work without insurance.',
-    images: ['https://dental.guide/og-home.png'],
+    images: ['https://dental-guide-eta.vercel.app/og-home.png'],
   },
   alternates: {
-    canonical: 'https://dental.guide',
+    canonical: 'https://dental-guide-eta.vercel.app',
   },
 };
 

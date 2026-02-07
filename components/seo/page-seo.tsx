@@ -21,12 +21,12 @@ export function PageSEO({
   description,
   pathname,
   ogType = 'website',
-  ogImage = 'https://dental.guide/og-image.png',
+  ogImage = 'https://dental-guide-eta.vercel.app/og-image.png',
   datePublished,
   breadcrumbs,
   noindex = false,
 }: PageSEOProps) {
-  const canonicalUrl = `https://dental.guide${pathname}`;
+  const canonicalUrl = `https://dental-guide-eta.vercel.app${pathname}`;
 
   return (
     <>

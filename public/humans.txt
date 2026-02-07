@@ -2,7 +2,7 @@
 Dental Guide - Guerilla Dental Survival Tools
 
 /* SITE URL */
-https://dental.guide
+https://dental-guide-eta.vercel.app
 
 /* AUTHORS */
 Guerilla Dental Guide Team
@@ -22,4 +22,4 @@ Dental survival tools for the uninsured and underinsured.
 
 /* CONTACT */
 For questions or feedback, please use our feedback form:
-https://dental.guide/feedback
+https://dental-guide-eta.vercel.app/feedback

@@ -75,7 +75,7 @@ All 10 PRD user stories verified and passing:
 ### 6. Technical SEO Elements ✅
 **Files Created:**
 - `app/sitemap.ts` - Dynamic sitemap generation (12 URLs)
-- `app/rss/route.ts` - RSS feed at `/rss.xml`
+- `app/rss/route.ts` - RSS feed at `/rss`
 - `public/robots.txt` - Search engine crawler directives
 - `lib/seo/schema-markup.tsx` - JSON-LD schema components
 - `lib/seo/canonical-url.tsx` - Canonical URL utilities

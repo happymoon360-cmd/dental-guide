@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   keywords: ['dental blog', 'affordable dental tips', 'dental cost savings', 'free dental care guide', 'dental insurance alternatives'],
   openGraph: {
     type: 'website',
-    url: 'https://dental.guide/blog',
+    url: 'https://dental-guide-eta.vercel.app/blog',
     title: 'Dental Care Blog - Money-Saving Tips & Resources',
     description: 'Expert guides on finding affordable dental care, negotiating bills, and accessing free clinics.',
     images: [
       {
-        url: 'https://dental.guide/og-blog.png',
+        url: 'https://dental-guide-eta.vercel.app/og-blog.png',
         width: 1200,
         height: 630,
         alt: 'Dental Guide Blog',
@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Dental Care Blog - Money-Saving Tips & Resources',
     description: 'Expert guides on finding affordable dental care, negotiating bills, and accessing free clinics.',
-    images: ['https://dental.guide/og-blog.png'],
+    images: ['https://dental-guide-eta.vercel.app/og-blog.png'],
   },
   alternates: {
-    canonical: 'https://dental.guide/blog',
+    canonical: 'https://dental-guide-eta.vercel.app/blog',
   },
 };
 

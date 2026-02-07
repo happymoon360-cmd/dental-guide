@@ -463,13 +463,12 @@ npx vitest tests/unit/scripts.test.ts
 ```
 tests/
 ├── unit/
-│   ├── scripts.test.ts      # Script generation logic
-│   ├── geolocation.test.ts  # Distance calculations
-│   └── costs.test.ts        # Cost estimation
-└── e2e/
-    ├── script-builder.spec.ts
-    ├── school-finder.spec.ts
-    └── navigation.spec.ts
+│   ├── geolocation.test.ts  # Distance calculations unit tests
+│   └── (scripts.test.ts)    # Script generation logic (currently backup)
+├── cost-estimator.spec.js   # Cost calculator E2E
+├── school-finder.spec.js    # School finder E2E
+├── script-builder.spec.js   # Script builder E2E
+└── emergency-triage.spec.js # Emergency triage E2E
 ```
 
 ### 6.2 E2E Testing with Playwright
@@ -492,30 +491,26 @@ npm run test:e2e
 npx playwright test --ui
 
 # Run specific test
-npx playwright test tests/e2e/script-builder.spec.ts
+npx playwright test tests/script-builder.spec.js
 ```
 
 #### Example E2E Test
-```typescript
-// tests/e2e/script-builder.spec.ts
-import { test, expect } from '@playwright/test';
+```javascript
+// tests/script-builder.spec.js
+const { test, expect } = require('@playwright/test');
 
 test('generates English scripts', async ({ page }) => {
   await page.goto('/script-builder');
 
   // Select options
-  await page.selectOption('select', 'Root Canal');
-  await page.selectOption('[name="payment"]', 'Cash');
-  await page.selectOption('[name="language"]', 'English');
-
+  await selectRadixOption(page, 'Treatment', 'Root Canal');
+  
   // Generate
-  await page.click('button:has-text("Generate Scripts")');
+  await page.getByRole('button', { name: "Generate Scripts" }).click();
 
   // Verify
-  await expect(page.locator('.script-card')).toHaveCount(2);
-  await expect(page.locator('text=Root Canal')).toBeVisible();
+  await expect(page.locator('[data-script="A"]')).toBeVisible();
 });
-
 test('copies script to clipboard', async ({ page }) => {
   await page.goto('/script-builder');
   // ... generate script ...
@@ -530,18 +525,34 @@ test('copies script to clipboard', async ({ page }) => {
 
 ---
 
-## 7. Pre-Deployment Checklist
+### 7. Pre-Deployment Checklist
 
-### 7.1 Code Quality
+### 7.1 Automated Verification (MANDATORY)
 
-- [ ] No TypeScript errors (`npx tsc --noEmit`)
-- [ ] No ESLint warnings (`npm run lint`)
-- [ ] All tests passing (`npm test`)
+- [ ] Linting & Type Check
+  ```bash
+  npm run lint && npx tsc --noEmit
+  ```
+- [ ] Unit Tests
+  ```bash
+  npm test
+  ```
+- [ ] E2E Tests (Playwright)
+  ```bash
+  npm run test:e2e
+  ```
+  - [ ] **Verify**: 19 tests must pass
+  - [ ] **Verify**: All 4 suites (Script Builder, Cost Estimator, School Finder, Emergency Triage) pass
+  - [ ] **Verify**: No timeouts or strict mode violations
+
+### 7.2 Code Quality
+
 - [ ] No console errors on any page
 - [ ] No broken images or 404s
-- [ ] All links work
+- [ ] All links must work
+- [ ] No leftover `console.log` in production code
 
-### 7.2 Performance
+### 7.3 Performance & Core Vitals
 
 - [ ] Lighthouse score > 90 for Performance
 - [ ] Lighthouse score > 90 for Accessibility
@@ -549,77 +560,57 @@ test('copies script to clipboard', async ({ page }) => {
 - [ ] Initial load < 3 seconds
 - [ ] No layout shifts (CLS < 0.1)
 
-### 7.3 Content
+### 7.4 Content & Localization
 
-- [ ] All text in English (no Korean UI text)
-- [ ] All labels translated correctly
-- [ ] Script generation works for English and Spanish
+- [ ] all UI text must be in English by default (no Korean/Spanish leaks)
+- [ ] Script generator must output correct Spanish/Korean when selected
 - [ ] No placeholder text ("Lorem ipsum")
-- [ ] Contact information accurate
+- [ ] Contact information is accurate and verified
 
-### 7.4 Responsive Design
+### 7.5 Responsive Design & Interactions
 
-- [ ] Tested on mobile (375px width)
-- [ ] Tested on tablet (768px width)
-- [ ] Tested on desktop (1920px width)
-- [ ] Bottom navigation works on mobile
-- [ ] No horizontal scrollbars
-- [ ] Touch targets >= 44px
+- [ ] **Mobile (375px)**: Bottom nav visible, no horizontal scroll
+- [ ] **Tablet (768px)**: Grid layouts adjust correctly
+- [ ] **Desktop (1920px)**: No broken layouts
+- [ ] **Touch Targets**: All interactive elements >= 44x44px
 
-### 7.5 Cross-Browser
+### 7.6 Cross-Browser Compatibility
 
-- [ ] Tested in Chrome
-- [ ] Tested in Safari (desktop + iOS)
-- [ ] Tested in Firefox
-- [ ] Tested in Edge
-- [ ] No browser-specific bugs
+- [ ] Chrome (Latest)
+- [ ] Safari (macOS & iOS) - *Verify bottom nav on iOS*
+- [ ] Firefox (Latest)
+- [ ] Edge (Latest)
 
-### 7.6 Accessibility
+### 7.7 Accessibility Service
 
-- [ ] Keyboard navigation works
-- [ ] Screen reader friendly
-- [ ] Color contrast ratios met (WCAG AA)
-- [ ] Focus indicators visible
-- [ ] Alt text on images
-- [ ] ARIA labels on interactive elements
+- [ ] Keyboard navigation (Tab/Enter/Space) works on all forms
+- [ ] Screen reader compatibility (VoiceOver/TalkBack) verified
+- [ ] Color contrast ratios (WCAG AA) met
+- [ ] Focus indicators clearly visible
+- [ ] ARIA labels present on all inputs/buttons
 
-### 7.7 Security
+### 7.8 SEO & Metadata
 
-- [ ] No sensitive data in localStorage
-- [ ] No hardcoded API keys
-- [ ] HTTPS ready
-- [ ] No console.log in production
-- [ ] Error handling doesn't leak info
-
-### 7.8 SEO
-
-- [ ] Meta tags present
-- [ ] Open Graph tags
-- [ ] Structured data (JSON-LD)
-- [ ] Sitemap generated
-- [ ] robots.txt configured
-- [ ] Semantic HTML
+- [ ] Meta title and description tags are present and unique per page
+- [ ] Open Graph (OG) tags configured
+- [ ] robots.txt and sitemap.xml generated
+- [ ] Semantic HTML structure (H1->H2->H3)
 
 ---
 
 ## Quick Test Commands
 
 ```bash
-# Full test suite
-npm test                 # Unit tests
-npm run test:e2e        # E2E tests
-npm run lint            # Linting
-npx tsc --noEmit        # Type check
+# 1. Full Validation Suite (Run before every commit)
+npm run lint && npx tsc --noEmit && npm test && npm run test:e2e
 
-# Quick smoke test
+# 2. Quick Smoke Test (Local Dev)
 pkill -f "next dev"
 rm -rf .next
 npm run dev
-
-# Then in browser:
-# 1. http://localhost:3000
-# 2. Test each page
-# 3. Check console
+# -> Open http://localhost:3000
+# -> Click through all tabs
+# -> Check console for red errors
 ```
 
 ---

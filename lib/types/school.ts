@@ -7,6 +7,9 @@ export interface School {
   website: string;
   notes?: string;
   hidden?: boolean;
+  lastVerified?: string;
+  verificationStatus: 'verified' | 'unverified' | 'stale' | 'error';
+  websiteStatus?: 'active' | 'redirect' | 'not_found' | 'error';
 }
 
 export interface SchoolWithDistance extends School {

@@ -1,0 +1,583 @@
+{
+  "timestamp": "2026-02-05T04:02:57.227Z",
+  "total": 80,
+  "active": 64,
+  "redirect": 12,
+  "notFound": 2,
+  "error": 2,
+  "results": [
+    {
+      "name": "Rutgers School of Dental Medicine",
+      "website": "https://sdm.rutgers.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:50.287Z"
+    },
+    {
+      "name": "NYU College of Dentistry",
+      "website": "https://dental.nyu.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:50.321Z"
+    },
+    {
+      "name": "UCLA School of Dentistry",
+      "website": "https://www.dentistry.ucla.edu",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "https://dentistry.ucla.edu/",
+      "timestamp": "2026-02-05T04:01:50.322Z"
+    },
+    {
+      "name": "University of Michigan School of Dentistry",
+      "website": "https://dent.umich.edu",
+      "status": 403,
+      "statusText": "error",
+      "timestamp": "2026-02-05T04:01:50.322Z"
+    },
+    {
+      "name": "UTHealth School of Dentistry",
+      "website": "https://dentistry.uth.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:50.322Z"
+    },
+    {
+      "name": "Harvard School of Dental Medicine",
+      "website": "https://www.hsdm.harvard.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:53.346Z"
+    },
+    {
+      "name": "Tufts University School of Dental Medicine",
+      "website": "https://dental.tufts.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:53.347Z"
+    },
+    {
+      "name": "Boston University Henry M. Goldman School of Dental Medicine",
+      "website": "https://www.bu.edu/dental",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "https://www.bu.edu/dental/",
+      "timestamp": "2026-02-05T04:01:53.348Z"
+    },
+    {
+      "name": "Columbia University College of Dental Medicine",
+      "website": "https://www.dental.columbia.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:53.349Z"
+    },
+    {
+      "name": "University of Pennsylvania School of Dental Medicine",
+      "website": "https://www.dental.upenn.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:53.349Z"
+    },
+    {
+      "name": "Temple University Kornberg School of Dentistry",
+      "website": "https://dentistry.temple.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:55.764Z"
+    },
+    {
+      "name": "University of Pittsburgh School of Dental Medicine",
+      "website": "https://www.dental.pitt.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:55.766Z"
+    },
+    {
+      "name": "University of Maryland School of Dentistry",
+      "website": "https://www.dental.umaryland.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:55.767Z"
+    },
+    {
+      "name": "Howard University College of Dentistry",
+      "website": "https://dentistry.howard.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:55.767Z"
+    },
+    {
+      "name": "Virginia Commonwealth University School of Dentistry",
+      "website": "https://dentistry.vcu.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:01:55.767Z"
+    },
+    {
+      "name": "University of North Carolina Adams School of Dentistry",
+      "website": "https://dentistry.unc.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:06.539Z"
+    },
+    {
+      "name": "East Carolina University School of Dental Medicine",
+      "website": "https://dental.ecu.edu",
+      "status": 404,
+      "statusText": "not_found",
+      "timestamp": "2026-02-05T04:02:06.540Z"
+    },
+    {
+      "name": "University of Florida College of Dentistry",
+      "website": "https://dental.ufl.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:06.540Z"
+    },
+    {
+      "name": "Nova Southeastern University College of Dental Medicine",
+      "website": "https://dental.nova.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:06.541Z"
+    },
+    {
+      "name": "University of Alabama at Birmingham School of Dentistry",
+      "website": "https://www.uab.edu/dentistry",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "https://www.uab.edu/dentistry/home",
+      "timestamp": "2026-02-05T04:02:06.541Z"
+    },
+    {
+      "name": "Louisiana State University Health Sciences Center School of Dentistry",
+      "website": "https://www.lsusd.lsuhsc.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:10.572Z"
+    },
+    {
+      "name": "University of Tennessee Health Science Center College of Dentistry",
+      "website": "https://www.uthsc.edu/dentistry",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "https://www.uthsc.edu/dentistry/",
+      "timestamp": "2026-02-05T04:02:10.574Z"
+    },
+    {
+      "name": "University of Kentucky College of Dentistry",
+      "website": "https://dentistry.uky.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:10.575Z"
+    },
+    {
+      "name": "University of Louisville School of Dentistry",
+      "website": "https://louisville.edu/dentistry",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:10.576Z"
+    },
+    {
+      "name": "The Ohio State University College of Dentistry",
+      "website": "https://dentistry.osu.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:10.576Z"
+    },
+    {
+      "name": "Case Western Reserve University School of Dental Medicine",
+      "website": "https://case.edu/dental",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "https://case.edu/dental/",
+      "timestamp": "2026-02-05T04:02:16.654Z"
+    },
+    {
+      "name": "University of Minnesota School of Dentistry",
+      "website": "https://dentistry.umn.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:16.655Z"
+    },
+    {
+      "name": "University of Iowa College of Dentistry",
+      "website": "https://dentistry.uiowa.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:16.656Z"
+    },
+    {
+      "name": "Marquette University School of Dentistry",
+      "website": "https://www.marquette.edu/dentistry",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "https://www.marquette.edu/dentistry/",
+      "timestamp": "2026-02-05T04:02:16.656Z"
+    },
+    {
+      "name": "University of Illinois Chicago College of Dentistry",
+      "website": "https://dentistry.uic.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:16.656Z"
+    },
+    {
+      "name": "Indiana University School of Dentistry",
+      "website": "https://dentistry.iu.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:19.935Z"
+    },
+    {
+      "name": "University of Missouri-Kansas City School of Dentistry",
+      "website": "https://dentistry.umkc.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:19.936Z"
+    },
+    {
+      "name": "University of Nebraska Medical Center College of Dentistry",
+      "website": "https://www.unmc.edu/dentistry",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "https://www.unmc.edu/dentistry/",
+      "timestamp": "2026-02-05T04:02:19.936Z"
+    },
+    {
+      "name": "Creighton University School of Dentistry",
+      "website": "https://www.creighton.edu/dentistry",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:19.936Z"
+    },
+    {
+      "name": "University of Colorado School of Dental Medicine",
+      "website": "https://dental.cuanschutz.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:19.937Z"
+    },
+    {
+      "name": "University of Washington School of Dentistry",
+      "website": "https://dental.washington.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:23.821Z"
+    },
+    {
+      "name": "Oregon Health & Science University School of Dentistry",
+      "website": "https://www.ohsu.edu/school-of-dentistry",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:23.822Z"
+    },
+    {
+      "name": "University of Utah School of Dentistry",
+      "website": "https://dentistry.utah.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:23.823Z"
+    },
+    {
+      "name": "Midwestern University College of Dental Medicine-Arizona",
+      "website": "https://www.midwestern.edu/academics/degrees-programs/doctor-dental-medicine-program/college-dental-medicine-arizona",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:23.823Z"
+    },
+    {
+      "name": "University of Nevada, Las Vegas School of Dental Medicine",
+      "website": "https://www.unlv.edu/dental",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:23.824Z"
+    },
+    {
+      "name": "Roseman University College of Dental Medicine",
+      "website": "https://www.roseman.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:26.480Z"
+    },
+    {
+      "name": "University of the Pacific Arthur A. Dugoni School of Dentistry",
+      "website": "https://www.pacific.edu/dental",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:26.481Z"
+    },
+    {
+      "name": "USC Herman Ostrow School of Dentistry",
+      "website": "https://dentistry.usc.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:26.482Z"
+    },
+    {
+      "name": "UCSF School of Dentistry",
+      "website": "https://dentschool.ucsf.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:26.482Z"
+    },
+    {
+      "name": "Loma Linda University School of Dentistry",
+      "website": "https://dentistry.llu.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:26.483Z"
+    },
+    {
+      "name": "Western University of Health Sciences College of Dental Medicine",
+      "website": "https://www.westernu.edu/dentistry",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:28.291Z"
+    },
+    {
+      "name": "Midwestern University College of Dental Medicine-Illinois",
+      "website": "https://clinics.midwestern.edu/downers-grove-clinic/dental-institute-il",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:28.292Z"
+    },
+    {
+      "name": "Texas A&M College of Dentistry",
+      "website": "https://dentistry.tamu.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:28.293Z"
+    },
+    {
+      "name": "UT Health San Antonio School of Dentistry",
+      "website": "https://uthscsa.edu/dental",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "http://uthscsa.edu/dental/",
+      "timestamp": "2026-02-05T04:02:28.293Z"
+    },
+    {
+      "name": "University of Oklahoma College of Dentistry",
+      "website": "https://dentistry.ouhsc.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:28.294Z"
+    },
+    {
+      "name": "University of Arkansas for Medical Sciences College of Dentistry",
+      "website": "https://uamshealth.com/expertise/dental-care/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:31.124Z"
+    },
+    {
+      "name": "University of Mississippi Medical Center School of Dentistry",
+      "website": "https://umc.edu/Healthcare/Dentistry-and-Oral-Health/Dentistry_and_Oral_Health_Home.html",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:31.125Z"
+    },
+    {
+      "name": "Meharry Medical College School of Dentistry",
+      "website": "https://meharry.edu/meharry-clinics/dental-clinic/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:31.125Z"
+    },
+    {
+      "name": "University of Detroit Mercy School of Dentistry",
+      "website": "https://dentalpatients.udmercy.edu/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:31.125Z"
+    },
+    {
+      "name": "Touro College of Dental Medicine",
+      "website": "https://dental.touro.edu/patients/ny/location--contact/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:31.126Z"
+    },
+    {
+      "name": "University of New England College of Dental Medicine",
+      "website": "https://www.une.edu/dentalmedicine",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:34.245Z"
+    },
+    {
+      "name": "University at Buffalo School of Dental Medicine",
+      "website": "https://dental.buffalo.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:34.246Z"
+    },
+    {
+      "name": "University of Connecticut School of Dental Medicine",
+      "website": "https://dentalmedicine.uconn.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:34.247Z"
+    },
+    {
+      "name": "LECOM School of Dental Medicine",
+      "website": "https://lecom.edu/dental/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:34.247Z"
+    },
+    {
+      "name": "Dental College of Georgia at Augusta University",
+      "website": "https://www.augusta.edu/dentalmedicine/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:34.247Z"
+    },
+    {
+      "name": "Southern Illinois University School of Dental Medicine",
+      "website": "https://www.siue.edu/dental/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:37.142Z"
+    },
+    {
+      "name": "A.T. Still University Missouri School of Dentistry & Oral Health",
+      "website": "https://www.atsu.edu/missouri-school-of-dentistry-and-oral-health",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:37.143Z"
+    },
+    {
+      "name": "Kansas City University College of Dental Medicine",
+      "website": "https://www.kansascity.edu/oral-health-center",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:37.143Z"
+    },
+    {
+      "name": "Stony Brook University School of Dental Medicine",
+      "website": "https://dentistry.stonybrookmedicine.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:37.144Z"
+    },
+    {
+      "name": "High Point University School of Dental Medicine and Oral Health",
+      "website": "https://www.highpoint.edu/dental-medicine/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:37.144Z"
+    },
+    {
+      "name": "Texas Tech University Health Sciences Center El Paso-Hunt School of Dentistry",
+      "website": "https://ttdentalcare.com",
+      "status": null,
+      "statusText": "error",
+      "error": "This operation was aborted",
+      "timestamp": "2026-02-05T04:02:39.546Z"
+    },
+    {
+      "name": "Arizona School of Dentistry & Oral Health",
+      "website": "https://www.atsu.edu/arizona-school-of-dentistry-and-oral-health",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:39.547Z"
+    },
+    {
+      "name": "California Northstate University College of Dental Medicine",
+      "website": "https://dentalmedicine.cnsu.edu/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:39.548Z"
+    },
+    {
+      "name": "Medical University of South Carolina College of Dental Medicine",
+      "website": "https://dentistry.musc.edu",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:39.548Z"
+    },
+    {
+      "name": "Lincoln Memorial University College of Dental Medicine",
+      "website": "https://www.lmunet.edu/college-of-dental-medicine/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:39.548Z"
+    },
+    {
+      "name": "University of Puerto Rico School of Dental Medicine",
+      "website": "https://dental.rcm.upr.edu/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:50.549Z"
+    },
+    {
+      "name": "Universidad Ana G. Mendez School of Dental Medicine",
+      "website": "https://uagm.edu/es/school-dental-medicine",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:50.550Z"
+    },
+    {
+      "name": "Ponce Health Sciences University School of Dental Medicine",
+      "website": "https://phsu.edu/academics/schools/school-of-dental-medicine.php",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:50.550Z"
+    },
+    {
+      "name": "Lyon College School of Dental Medicine",
+      "website": "https://www.lyon.edu/dental-medicine",
+      "status": 404,
+      "statusText": "not_found",
+      "timestamp": "2026-02-05T04:02:50.551Z"
+    },
+    {
+      "name": "Eastman Institute for Oral Health",
+      "website": "https://www.urmc.rochester.edu/dentistry",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:50.551Z"
+    },
+    {
+      "name": "West Virginia University School of Dentistry",
+      "website": "https://hsc.wvu.edu/dentistry",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "https://health.wvu.edu/dentistry",
+      "timestamp": "2026-02-05T04:02:54.437Z"
+    },
+    {
+      "name": "High Point University Workman School of Dental Medicine",
+      "website": "https://www.highpoint.edu/dental-medicine/",
+      "status": 200,
+      "statusText": "active",
+      "timestamp": "2026-02-05T04:02:54.439Z"
+    },
+    {
+      "name": "University of Rochester Eastman Institute for Oral Health",
+      "website": "https://www.urmc.rochester.edu/dentistry/patients.aspx",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "/dentistry/patients",
+      "timestamp": "2026-02-05T04:02:54.439Z"
+    },
+    {
+      "name": "Northeast Ohio Medical University Bitonte College of Dentistry",
+      "website": "https://www.neomed.edu/dentistry",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "https://www.neomed.edu/dentistry/",
+      "timestamp": "2026-02-05T04:02:54.440Z"
+    },
+    {
+      "name": "Pacific Northwest University School of Dental Medicine",
+      "website": "https://www.pnwu.edu/school-of-dental-medicine",
+      "status": 301,
+      "statusText": "redirect",
+      "redirectUrl": "https://www.pnwu.edu/academics/school-of-dental-medicine/",
+      "timestamp": "2026-02-05T04:02:54.440Z"
+    }
+  ]
+}

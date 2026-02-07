@@ -11,7 +11,7 @@ import { cn } from '@/lib/utils/cn';
 const inter = Inter({ subsets: ['latin'], variable: '--font-pretendard' });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dental.guide'),
+  metadataBase: new URL('https://dental-guide-eta.vercel.app'),
   title: {
     default: 'Guerilla Dental Guide - Dental Survival Tools for the Uninsured',
     template: '%s | Guerilla Dental Guide',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     alternateLocale: ['es_ES'],
-    url: 'https://dental.guide',
+    url: 'https://dental-guide-eta.vercel.app',
     title: 'Guerilla Dental Guide',
     description: 'Dental survival tools for the uninsured - negotiation scripts, school finder, cost estimator',
     siteName: 'Guerilla Dental Guide',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://plausible.io; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.zippopotam.us https://nominatim.openstreetmap.org https://plausible.io; frame-ancestors 'none';",
   },
   alternates: {
-    canonical: 'https://dental.guide',
+    canonical: 'https://dental-guide-eta.vercel.app',
   },
 };
 
@@ -59,9 +59,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <CanonicalUrl url="https://dental.guide" />
+        <CanonicalUrl url="https://dental-guide-eta.vercel.app" />
         <SchemaMarkup />
-        <link rel="alternate" type="application/rss+xml" title="Guerilla Dental Guide RSS Feed" href="https://dental.guide/rss.xml" />
+        <link rel="alternate" type="application/rss+xml" title="Guerilla Dental Guide RSS Feed" href="https://dental-guide-eta.vercel.app/rss" />
         <link rel="manifest" href="/manifest.json" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

@@ -1,4 +1,4 @@
-// File: /Users/heoseogjun/Library/CloudStorage/OneDrive-Personal/Project/Dental Guide/app/rss/route.ts
+// File: /Users/jun/Projects/Dental Guide/app/rss/route.ts
 import * as entry from '../../../../app/rss/route.js'
 import type { NextRequest } from 'next/server.js'
 

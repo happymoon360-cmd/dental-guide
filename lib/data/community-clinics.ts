@@ -17,6 +17,8 @@ export const communityClinics: School[] = [
     phone: '(907) 733-2273',
     website: 'https://www.sunshineclinic.org',
     notes: 'FQHC providing medical, behavioral health, and dental care services. Sliding fee scale available.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Mat-Su Health Services',
@@ -26,6 +28,8 @@ export const communityClinics: School[] = [
     phone: '(907) 892-0155',
     website: 'https://www.mshsak.org',
     notes: 'FQHC offering affordable dental care including cleanings, exams, fillings, and tooth removal.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Southcentral Foundation Dental Clinic',
@@ -35,6 +39,8 @@ export const communityClinics: School[] = [
     phone: '(907) 563-2484',
     website: 'https://www.southcentralfoundation.com/services/dental-services/',
     notes: 'Four dental clinics in Anchorage providing comprehensive dental services.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // DELAWARE (DE)
@@ -46,6 +52,8 @@ export const communityClinics: School[] = [
     phone: '(302) 224-6800',
     website: 'https://www.westsidehealth.org',
     notes: 'FQHC with dental services at multiple locations. Accepts Medicaid and sliding fee scale.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Westside Family Healthcare',
@@ -55,6 +63,8 @@ export const communityClinics: School[] = [
     phone: '(302) 678-4622',
     website: 'https://www.westsidehealth.org',
     notes: 'FQHC providing dental care for Kent and Sussex counties. Call for dental appointments.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // HAWAII (HI)
@@ -66,6 +76,8 @@ export const communityClinics: School[] = [
     phone: '(808) 922-4787',
     website: 'https://www.waikikihealth.org/patients/services/dental/',
     notes: 'FQHC providing comprehensive dental examinations, cleanings, X-rays, fillings, and fluoride treatments.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Molokai Community Health Center',
@@ -75,6 +87,8 @@ export const communityClinics: School[] = [
     phone: '(808) 553-5038',
     website: 'https://www.molokaichc.org/getting-care/dental-services/',
     notes: 'FQHC offering oral exams, cleanings, dentures, fillings, and extractions. May have waitlist.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Hawaii Community Health Center',
@@ -84,6 +98,8 @@ export const communityClinics: School[] = [
     phone: '(808) 791-6400',
     website: 'https://hichc.org/services/dental/',
     notes: 'FQHC providing comprehensive oral health services including cleanings, X-rays, and preventive care.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // IDAHO (ID)
@@ -95,6 +111,8 @@ export const communityClinics: School[] = [
     phone: '(208) 344-0086',
     website: 'https://www.trhs.org',
     notes: 'FQHC with dental care for the whole family. Accepts all insurance including Medicaid.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Terry Reilly Health Services - Nampa',
@@ -104,6 +122,8 @@ export const communityClinics: School[] = [
     phone: '(208) 467-4431',
     website: 'https://www.trhs.org',
     notes: 'FQHC providing medical, dental, and behavioral health services. Sliding fee scale available.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Family Health Services',
@@ -113,6 +133,8 @@ export const communityClinics: School[] = [
     phone: '(208) 734-2600',
     website: 'https://www.fhsid.org',
     notes: 'FQHC providing high-quality, culturally sensitive dental care and behavioral health services.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // KANSAS (KS)
@@ -124,6 +146,8 @@ export const communityClinics: School[] = [
     phone: '(913) 648-2266',
     website: 'https://hpcks.org/our-services/dental/',
     notes: 'FQHC offering pediatric dental care, oral health education, and routine dental services.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Marian Dental Clinic',
@@ -133,6 +157,8 @@ export const communityClinics: School[] = [
     phone: '(785) 233-2800',
     website: 'https://www.marianclinic.org',
     notes: 'Safety net dental clinic serving Topeka area. Sliding fee scale available.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Swope Health',
@@ -142,6 +168,8 @@ export const communityClinics: School[] = [
     phone: '(816) 922-7000',
     website: 'https://www.swopehealth.org',
     notes: 'FQHC providing comprehensive dental services. Accepts Medicaid and uninsured patients.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // MONTANA (MT)
@@ -153,6 +181,8 @@ export const communityClinics: School[] = [
     phone: '(406) 258-4789',
     website: 'https://www.partnershiphealthcenter.org',
     notes: 'FQHC providing medical, dental, and behavioral health services. Sliding fee scale available.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Community Health Partners',
@@ -162,6 +192,8 @@ export const communityClinics: School[] = [
     phone: '(406) 585-1010',
     website: 'https://www.chpmt.org',
     notes: 'FQHC offering comprehensive primary care including dental services.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Bullhook Community Health Center',
@@ -171,6 +203,8 @@ export const communityClinics: School[] = [
     phone: '(406) 395-4304',
     website: 'https://www.bullhook.org',
     notes: 'FQHC providing dental services for north-central Montana communities.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // NORTH DAKOTA (ND)
@@ -182,6 +216,8 @@ export const communityClinics: School[] = [
     phone: '(701) 838-7800',
     website: 'https://www.nchclinics.org',
     notes: 'FQHC providing comprehensive dental services in rural North Dakota.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Family HealthCare',
@@ -191,6 +227,8 @@ export const communityClinics: School[] = [
     phone: '(701) 237-4340',
     website: 'https://www.familyhealthcare.org',
     notes: 'FQHC with dental clinic serving Fargo-Moorhead area. Sliding fee scale available.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Dakota Health Center',
@@ -200,6 +238,8 @@ export const communityClinics: School[] = [
     phone: '(701) 222-5136',
     website: 'https://www.dakotahealthcenter.org',
     notes: 'FQHC providing primary medical, dental, and behavioral health services.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // NEW HAMPSHIRE (NH)
@@ -211,6 +251,8 @@ export const communityClinics: School[] = [
     phone: '(603) 422-8208',
     website: 'https://getcommunityhealth.org',
     notes: 'FQHC network providing medical and dental care for whole families.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Concord Hospital Dental Center',
@@ -220,6 +262,8 @@ export const communityClinics: School[] = [
     phone: '(603) 227-7000',
     website: 'https://www.concordhospital.org/locations/profile/concord-hospital-dental-center/',
     notes: 'Community dental center accepting new patients. Comprehensive dental services.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Amoskeag Health',
@@ -229,6 +273,8 @@ export const communityClinics: School[] = [
     phone: '(603) 626-9500',
     website: 'https://www.amoskeaghealth.org',
     notes: 'FQHC providing primary care, dental, and behavioral health services. Sliding fee scale.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // NEW MEXICO (NM)
@@ -240,6 +286,8 @@ export const communityClinics: School[] = [
     phone: '(505) 841-7990',
     website: 'https://www.fcch.org',
     notes: 'FQHC providing comprehensive primary care including dental services at multiple locations.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'La Familia Medical Center',
@@ -249,6 +297,8 @@ export const communityClinics: School[] = [
     phone: '(505) 989-8300',
     website: 'https://www.lafamilia.org',
     notes: 'FQHC offering medical, dental, and behavioral health services. Sliding fee scale available.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'El Centro de Familia',
@@ -258,6 +308,8 @@ export const communityClinics: School[] = [
     phone: '(575) 526-3030',
     website: 'https://www.elcentrodelfamilia.org',
     notes: 'FQHC providing healthcare services including dental care for southern New Mexico.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // SOUTH DAKOTA (SD)
@@ -269,6 +321,8 @@ export const communityClinics: School[] = [
     phone: '(605) 718-3000',
     website: 'https://www.horizonhealthcare.org',
     notes: 'FQHC serving medical, dental, and mental healthcare needs in rural South Dakota.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Community HealthCare Inc',
@@ -278,6 +332,8 @@ export const communityClinics: School[] = [
     phone: '(605) 275-2600',
     website: 'https://www.communityhealthcare.net',
     notes: 'FQHC providing primary care and dental services. Accepts Medicaid and sliding fee scale.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Heartland Health Center',
@@ -287,6 +343,8 @@ export const communityClinics: School[] = [
     phone: '(605) 668-1600',
     website: 'https://www.heartlandhealthcenter.org',
     notes: 'FQHC offering comprehensive healthcare services including dental care.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // VERMONT (VT)
@@ -298,6 +356,8 @@ export const communityClinics: School[] = [
     phone: '(802) 864-6309',
     website: 'https://www.chcb.org',
     notes: 'FQHC offering Vermont Dental Care services. Serves patients regardless of insurance status.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Northern Counties Health Care',
@@ -307,6 +367,8 @@ export const communityClinics: School[] = [
     phone: '(802) 748-5141',
     website: 'https://www.nchcvt.org',
     notes: 'FQHC expanding dental services with new equipment. Serving northern Vermont communities.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Northern Tier Center for Health (NOTCH)',
@@ -316,6 +378,8 @@ export const communityClinics: School[] = [
     phone: '(802) 888-4651',
     website: 'https://notchvt.org',
     notes: 'FQHC providing medical, dental, behavioral health, and pharmacy services. Affordable care.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // WEST VIRGINIA (WV)
@@ -327,6 +391,8 @@ export const communityClinics: School[] = [
     phone: '(304) 720-4466',
     website: 'https://familycarewv.org/service/dental-care/',
     notes: 'FQHC offering full dental services for ages 3+. Cleanings, fluoride, x-rays, and sealants.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Coplin Health',
@@ -336,6 +402,8 @@ export const communityClinics: School[] = [
     phone: '(304) 523-5134',
     website: 'https://coplinhealth.com/services/dental/',
     notes: 'FQHC providing dental services with sliding fee scale discounts for qualifying families.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Community Care of West Virginia',
@@ -345,6 +413,8 @@ export const communityClinics: School[] = [
     phone: '(304) 897-5515',
     website: 'https://www.communitycarewv.org',
     notes: 'FQHC providing comprehensive primary, oral, and mental health/substance abuse services.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 
   // WYOMING (WY)
@@ -356,6 +426,8 @@ export const communityClinics: School[] = [
     phone: '(307) 235-9343',
     website: 'https://www.chccw.org',
     notes: 'FQHC serving since 1999. Medical, dental, pediatrics, women\'s health, pharmacy services.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Health West',
@@ -365,6 +437,8 @@ export const communityClinics: School[] = [
     phone: '(307) 789-3322',
     website: 'https://www.healthwest.org',
     notes: 'Non-profit, federally funded FQHC offering dental services.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
   {
     name: 'Wyoming Medical Center Community Health',
@@ -374,5 +448,7 @@ export const communityClinics: School[] = [
     phone: '(307) 577-2100',
     website: 'https://www.wyomingmedicalcenter.org',
     notes: 'Community health services including dental care for central Wyoming.',
+    lastVerified: '2025-02-05',
+    verificationStatus: 'unverified',
   },
 ];

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    url: 'https://dental.guide/analytics',
+    url: 'https://dental-guide-eta.vercel.app/analytics',
     title: 'Usage Analytics - Dental Guide',
     description: 'Track your usage of Dental Guide tools. Privacy-focused analytics stored locally on your device.',
   },
@@ -19,6 +19,6 @@ export const metadata: Metadata = {
     description: 'Track your usage of Dental Guide tools. Privacy-focused analytics stored locally on your device.',
   },
   alternates: {
-    canonical: 'https://dental.guide/analytics',
+    canonical: 'https://dental-guide-eta.vercel.app/analytics',
   },
 };

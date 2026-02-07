@@ -53,19 +53,19 @@ export default function FeedbackPage() {
         },
       });
 
-      if (response.ok) {
-        setIsSubmitted(true);
-      } else {
-        // Fallback: open mailto with form data
-        const tool = formData.get('tool');
-        const helpful = formData.get('helpful');
-        const mostHelpful = formData.get('mostHelpful');
-        const improvements = formData.get('improvements');
-        const recommend = formData.get('recommend');
-        const email = formData.get('email');
+       if (response.ok) {
+         setIsSubmitted(true);
+       } else {
+         // Fallback: open mailto with form data
+         const tool = formData.get('tool');
+         const helpful = formData.get('helpful');
+         const mostHelpful = formData.get('mostHelpful');
+         const improvements = formData.get('improvements');
+         const recommend = formData.get('recommend');
+         const email = formData.get('email');
 
-        const subject = 'Dental Guide Feedback';
-        const body = `
+         const subject = 'Dental Guide Feedback';
+         const body = `
 Tool Used: ${tool}
 Helpful: ${helpful}
 
@@ -77,18 +77,18 @@ ${improvements || 'N/A'}
 
 Would recommend: ${recommend}
 Email: ${email || 'Not provided'}
-        `.trim();
+         `.trim();
 
-        window.location.href = `mailto:dentalguide@example.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        setIsSubmitted(true);
-      }
-    } catch (error) {
-      console.error('Submission error:', error);
-      // Fallback to mailto on error
-      alert('Unable to submit. Please try again or email us directly at dentalguide@example.com');
-    } finally {
-      setIsSubmitting(false);
-    }
+         window.location.href = `mailto:jun91249@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+         setIsSubmitted(true);
+       }
+     } catch (error) {
+       console.error('Submission error:', error);
+       // Fallback to mailto on error
+       alert('Unable to submit. Please try again or email us directly at jun91249@gmail.com');
+     } finally {
+       setIsSubmitting(false);
+     }
   };
 
   if (isSubmitted) {

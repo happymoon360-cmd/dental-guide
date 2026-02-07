@@ -10,6 +10,6 @@ export function CanonicalUrl({ url }: { url: string }) {
  * Generates canonical URL for a given path
  */
 export function getCanonicalUrl(path: string): string {
-  const baseUrl = 'https://dental.guide';
+  const baseUrl = 'https://dental-guide-eta.vercel.app';
   return `${baseUrl}${path}`;
 }

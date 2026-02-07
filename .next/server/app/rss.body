@@ -3,51 +3,51 @@
   <channel>
     <title>Guerilla Dental Guide</title>
     <description>Dental survival tools for the uninsured - negotiation scripts, school finder, cost estimator</description>
-    <link>https://dental.guide</link>
+    <link>https://dental-guide-eta.vercel.app</link>
     <language>en-us</language>
     <copyright>Copyright 2026 Guerilla Dental Guide</copyright>
-    <lastBuildDate>Sat, 31 Jan 2026 07:58:33 GMT</lastBuildDate>
-    <pubDate>Sat, 31 Jan 2026 07:58:33 GMT</pubDate>
+    <lastBuildDate>Sat, 07 Feb 2026 05:44:01 GMT</lastBuildDate>
+    <pubDate>Sat, 07 Feb 2026 05:44:01 GMT</pubDate>
     <ttl>60</ttl>
-    <atom:link href="https://dental.guide/rss.xml" rel="self" type="application/rss+xml"/>
+    <atom:link href="https://dental-guide-eta.vercel.app/rss" rel="self" type="application/rss+xml"/>
     <item>
       <title>How to Find Affordable Dental Care</title>
       <description>Discover proven strategies for finding low-cost dental services in your area, including dental schools, community clinics, and negotiation tactics.</description>
-      <link>https://dental.guide/</link>
-      <guid>https://dental.guide/affordable-dental-care</guid>
-      <pubDate>Sat, 31 Jan 2026 07:58:33 GMT</pubDate>
+      <link>https://dental-guide-eta.vercel.app/</link>
+      <guid>https://dental-guide-eta.vercel.app/affordable-dental-care</guid>
+      <pubDate>Sat, 07 Feb 2026 05:44:01 GMT</pubDate>
       <category>Dental Care</category>
     </item>
     <item>
       <title>Dental School Clinics: Quality Care at Fraction of Cost</title>
       <description>Learn how dental schools provide supervised, high-quality dental treatments at 30-70% lower prices than private practices.</description>
-      <link>https://dental.guide/school-finder</link>
-      <guid>https://dental.guide/dental-school-guide</guid>
-      <pubDate>Sat, 31 Jan 2026 07:58:33 GMT</pubDate>
+      <link>https://dental-guide-eta.vercel.app/school-finder</link>
+      <guid>https://dental-guide-eta.vercel.app/dental-school-guide</guid>
+      <pubDate>Sat, 07 Feb 2026 05:44:01 GMT</pubDate>
       <category>Dental Education</category>
     </item>
     <item>
       <title>How to Negotiate Your Dental Bills</title>
       <description>Step-by-step scripts and strategies for negotiating dental procedure prices, setting up payment plans, and getting discounts.</description>
-      <link>https://dental.guide/script-builder</link>
-      <guid>https://dental.guide/negotiation-guide</guid>
-      <pubDate>Sat, 31 Jan 2026 07:58:33 GMT</pubDate>
+      <link>https://dental-guide-eta.vercel.app/script-builder</link>
+      <guid>https://dental-guide-eta.vercel.app/negotiation-guide</guid>
+      <pubDate>Sat, 07 Feb 2026 05:44:01 GMT</pubDate>
       <category>Financial Health</category>
     </item>
     <item>
       <title>Dental Emergency Triage: What to Do When You Can't Afford Care</title>
       <description>Emergency assessment tools and guidance for handling urgent dental problems when you're uninsured or on a tight budget.</description>
-      <link>https://dental.guide/emergency-triage</link>
-      <guid>https://dental.guide/emergency-dental-care</guid>
-      <pubDate>Sat, 31 Jan 2026 07:58:33 GMT</pubDate>
+      <link>https://dental-guide-eta.vercel.app/emergency-triage</link>
+      <guid>https://dental-guide-eta.vercel.app/emergency-dental-care</guid>
+      <pubDate>Sat, 07 Feb 2026 05:44:01 GMT</pubDate>
       <category>Emergency Care</category>
     </item>
     <item>
       <title>Understanding Dental Procedure Costs</title>
       <description>Comprehensive cost estimator for common dental procedures. Learn fair market prices and avoid overpaying for treatment.</description>
-      <link>https://dental.guide/cost-estimator</link>
-      <guid>https://dental.guide/dental-cost-guide</guid>
-      <pubDate>Sat, 31 Jan 2026 07:58:33 GMT</pubDate>
+      <link>https://dental-guide-eta.vercel.app/cost-estimator</link>
+      <guid>https://dental-guide-eta.vercel.app/dental-cost-guide</guid>
+      <pubDate>Sat, 07 Feb 2026 05:44:01 GMT</pubDate>
       <category>Cost Guide</category>
     </item>
   </channel>

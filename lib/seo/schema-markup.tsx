@@ -8,8 +8,8 @@ export function OrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Guerilla Dental Guide',
-    url: 'https://dental.guide',
-    logo: 'https://dental.guide/logo.png',
+    url: 'https://dental-guide-eta.vercel.app',
+    logo: 'https://dental-guide-eta.vercel.app/logo.png',
     description: 'Dental survival tools for the uninsured - negotiation scripts, school finder, and cost estimator',
     sameAs: [],
     contactPoint: {
@@ -112,7 +112,7 @@ export function ArticleSchema(props: {
     '@type': 'Article',
     headline: title,
     description,
-    image: 'https://dental.guide/og-image.png',
+    image: 'https://dental-guide-eta.vercel.app/og-image.png',
     datePublished,
     dateModified: dateModified || datePublished,
     author: {
@@ -124,12 +124,12 @@ export function ArticleSchema(props: {
       name: 'Guerilla Dental Guide',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://dental.guide/logo.png',
+        url: 'https://dental-guide-eta.vercel.app/logo.png',
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://dental.guide${pathname}`,
+      '@id': `https://dental-guide-eta.vercel.app${pathname}`,
     },
   };
 
@@ -156,7 +156,7 @@ export function BreadcrumbSchema(props: {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `https://dental.guide${item.path}`,
+      item: `https://dental-guide-eta.vercel.app${item.path}`,
     })),
   };
 
@@ -176,13 +176,13 @@ export function WebSiteSchema() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Guerilla Dental Guide',
-    url: 'https://dental.guide',
+    url: 'https://dental-guide-eta.vercel.app',
     description: 'Dental survival tools for the uninsured',
     potentialAction: {
       '@type': 'SearchAction',
       target: {
         '@type': 'EntryPoint',
-        urlTemplate: 'https://dental.guide/search?q={search_term_string}',
+        urlTemplate: 'https://dental-guide-eta.vercel.app/search?q={search_term_string}',
       },
       'query-input': 'required name=search_term_string',
     },
